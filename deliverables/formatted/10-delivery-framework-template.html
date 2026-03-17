@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Framework Template</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent-light: #fef0f2;
+    --bg: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e5e7eb;
+    --bg-alt: #f9fafb;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+.back-nav { background: var(--bg-alt); padding: 10px 24px; }
+.back-nav a { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; }
+.back-nav a:hover { text-decoration: underline; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+    size: A4;
+    margin: 2cm 2.5cm;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: var(--bg);
+    font-size: 15px;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--accent);
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 14px;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ── Lists ───────────────────────────────────────────── */
+ul, ol {
+    margin-bottom: 14px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+li > ul, li > ol {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* ── Blockquotes (message templates) ─────────────────── */
+blockquote {
+    background: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text);
+}
+
+blockquote p {
+    margin-bottom: 8px;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+thead {
+    background: var(--primary);
+    color: white;
+}
+
+th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--bg-alt);
+}
+
+tbody tr:hover {
+    background: var(--accent-light);
+}
+
+/* ── Code / Pre ──────────────────────────────────────── */
+code {
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+pre {
+    background: var(--primary);
+    color: #e0e0e0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-size: 13px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+/* ── Horizontal Rules ────────────────────────────────── */
+hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 32px 0;
+}
+
+/* ── Checkboxes (rendered as list items) ─────────────── */
+li input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--accent);
+}
+
+/* ── Strong / Bold ───────────────────────────────────── */
+strong {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ── Fill-in blanks ──────────────────────────────────── */
+.blank-line {
+    display: inline-block;
+    min-width: 300px;
+    border-bottom: 1px solid var(--border);
+    margin: 4px 0;
+}
+
+/* ── Header bar (top of page) ────────────────────────── */
+.header-bar {
+    background: var(--primary);
+    color: white;
+    padding: 24px 32px;
+    margin: -40px -24px 32px;
+    border-radius: 0 0 12px 12px;
+}
+
+.header-bar h1 {
+    color: white;
+    border-bottom: none;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.header-bar .subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* ── Print styles ────────────────────────────────────── */
+@media print {
+    body {
+        padding: 0;
+        font-size: 12px;
+        max-width: none;
+    }
+    .header-bar {
+        margin: 0 0 24px;
+        border-radius: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    thead {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    tbody tr:nth-child(even) {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .no-print { display: none; }
+}
+</style>
+</head>
+<body>
+    <nav class="back-nav"><a href="../../index.html">← Back to All Deliverables</a></nav>
+    <div class="header-bar">
+        <h1>Delivery Framework Template</h1>
+        <div class="subtitle">AI Agency Coaching Program</div>
+    </div>
+    <h1>Delivery Framework Template</h1>
+<p>This covers Steps 3-6 of the delivery process (after onboarding). For Steps 1-2, see the Client Onboarding Checklist.</p>
+<hr />
+<h2>Step 3: Weekly Progress Updates</h2>
+<p>Send an update every week on the same day. It takes 2 minutes and makes a massive difference in how the client perceives your work.</p>
+<p><strong>Why this matters:</strong> If the client doesn't hear from you, they don't know if you're building their system or watching Netflix. Weekly updates increase their confidence that they made a good investment.</p>
+<h3>Weekly Update Template</h3>
+<blockquote>
+<p>Hey [client name], just wanted to give you a quick update.</p>
+<p><strong>This week:</strong> We finished [milestone — e.g., setting up all the integrations and connecting your CRM].</p>
+<p><strong>Next week:</strong> We're moving into [next milestone — e.g., building the core automation logic].</p>
+<p>Everything is on track. [Optional: mention something specific — "The lead capture form is already pulling data correctly, which is great."]</p>
+<p>I'll update you again next [day]. Let me know if you have any questions in the meantime.</p>
+</blockquote>
+<p><strong>Rules:</strong><br />
+- Send it even if there's not much progress — "Still working on [milestone], ran into a small issue with [X] but working through it" is better than silence<br />
+- Keep it short — 3-5 sentences max<br />
+- Always mention what's coming next — it keeps momentum<br />
+- If something is delayed, be upfront about it immediately. Don't wait until the deadline.</p>
+<hr />
+<h2>Step 4: Testing</h2>
+<p>Do NOT hand off anything you haven't thoroughly tested. If the client finds bugs, you've destroyed the trust you built.</p>
+<h3>Testing Checklist</h3>
+<p><strong>End-to-End Testing:</strong><br />
+- <input type="checkbox" disabled> Run the entire automation from start to finish<br />
+- <input type="checkbox" disabled> Verify every step produces the correct output<br />
+- <input type="checkbox" disabled> Check that data flows correctly between all integrations<br />
+- <input type="checkbox" disabled> Confirm the final output matches what was promised</p>
+<p><strong>Edge Case Testing:</strong><br />
+- <input type="checkbox" disabled> What happens if someone fills out a form incorrectly?<br />
+- <input type="checkbox" disabled> What happens if an API call fails or times out?<br />
+- <input type="checkbox" disabled> What happens with unexpected input (empty fields, special characters, very long text)?<br />
+- <input type="checkbox" disabled> What happens if two triggers fire at the same time?<br />
+- <input type="checkbox" disabled> For AI agents: what happens when the AI doesn't understand the question?</p>
+<p><strong>Stress Testing:</strong><br />
+- <input type="checkbox" disabled> Run the automation at least 5-10 times (20-30 if it involves AI)<br />
+- <input type="checkbox" disabled> Check for consistency — does it produce the same result every time?<br />
+- <input type="checkbox" disabled> Test at different times of day (if timing matters)</p>
+<p><strong>Integration Testing:</strong><br />
+- <input type="checkbox" disabled> All connected tools still working (APIs, CRM, email, etc.)<br />
+- <input type="checkbox" disabled> Notifications/alerts going to the right places<br />
+- <input type="checkbox" disabled> Data being stored/logged correctly</p>
+<p><strong>If something doesn't work → fix it before delivery. No exceptions.</strong></p>
+<hr />
+<h2>Step 5: Documentation</h2>
+<p>You deliver two things: a video walkthrough and a written guide. This makes you look professional and makes the client self-sufficient.</p>
+<h3>Loom Video Walkthrough</h3>
+<p>Record a screen-share video walking through the automation step by step.</p>
+<p><strong>Important:</strong> Make the video GENERIC so the client's team can use it. Don't say "Hey John, great working with you." Instead say:</p>
+<blockquote>
+<p>"Hey, the purpose of this video is to act as documentation for [Company Name]'s team. I'm going to walk you through how this automation works and how to use it step by step."</p>
+</blockquote>
+<p><strong>What to cover in the video:</strong><br />
+1. What the automation does (the outcome, in plain English)<br />
+2. How it works, step by step (show the flow)<br />
+3. How to make changes if needed (e.g., update a response, change an email template)<br />
+4. What to do if something goes wrong (who to contact, basic troubleshooting)</p>
+<p>Keep it under 10 minutes if possible. Record with Loom (free plan works).</p>
+<h3>Written SOP (Standard Operating Procedure)</h3>
+<p>Turn the Loom video into a written document.</p>
+<p><strong>Quick method:</strong> Take the Loom transcript → paste into ChatGPT or Claude → ask:<br />
+"Turn this transcript into a step-by-step SOP document with clear headers, numbered steps, and any relevant screenshots described."</p>
+<p><strong>SOP Template:</strong></p>
+<blockquote>
+<h1>[Automation Name] — Standard Operating Procedure</h1>
+<h2>Overview</h2>
+<p>This document explains how [automation name] works and how to use it.</p>
+<h2>What It Does</h2>
+<p>[1-2 sentences explaining the outcome in plain English]</p>
+<h2>How It Works</h2>
+<ol>
+<li>[Step 1 — what triggers the automation]</li>
+<li>[Step 2 — what happens next]</li>
+<li>[Step 3 — and so on]<br />
+...</li>
+</ol>
+<h2>How to Make Changes</h2>
+<ul>
+<li>To update [X]: go to [location] and change [field]</li>
+<li>To add [Y]: [instructions]</li>
+</ul>
+<h2>Troubleshooting</h2>
+<ul>
+<li>If [problem]: try [solution]</li>
+<li>If [problem]: try [solution]</li>
+<li>For anything else: contact [your name] at [your email/phone]</li>
+</ul>
+<h2>Video Walkthrough</h2>
+<p>[Loom link]</p>
+</blockquote>
+<hr />
+<h2>Step 6: Handoff + Maximizing Client Value</h2>
+<h3>Delivery Email Template</h3>
+<p>Send this email when the project is complete and ready to hand off:</p>
+<blockquote>
+<p>Subject: [Project Name] is Complete and Ready to Go</p>
+<p>Hey [name],</p>
+<p>I'm excited to let you know that [project name] is complete and ready to use.</p>
+<p>Just so you and your team know exactly how everything works, I've put together two things for you:</p>
+<ol>
+<li><strong>Video walkthrough</strong> showing you exactly how the automation works and how to use it: [Loom link]</li>
+<li><strong>Written step-by-step guide</strong> with all the details: [Google Doc / PDF link]</li>
+</ol>
+<p>Everything is set up, tested, and ready to go live. If you have any questions or need any tweaks, just let me know.</p>
+<p>[If paid — final invoice:]<br />
+I've also submitted the final invoice for the remaining 50% of the project. You can pay that here: [payment link]</p>
+<p>Thanks again for trusting me with this project. I had a great time working on it.</p>
+<p>Talk soon,<br />
+[Your name]</p>
+<p>PS — I noticed while working on this project that there are probably other areas in your business where AI could help. I'd love to offer you a free business audit where we can map out other processes and identify opportunities to implement AI. No obligation — just want to make sure you're getting the most value possible. Let me know if you'd like to hop on a quick call to discuss this.</p>
+</blockquote>
+<h3>Why the PS Upsell Works</h3>
+<ul>
+<li>You've just delivered — trust is at its highest</li>
+<li>You're offering something free (a business audit)</li>
+<li>You're planting a seed for more business without being pushy</li>
+<li>Not every client will take you up on it, but the ones who do become your best clients</li>
+</ul>
+<h3>Asking for Referrals</h3>
+<p>After delivery (or during the handoff call):</p>
+<blockquote>
+<p>"Hey [name], I'm really glad [project/automation] is working well for you. As we discussed at the start, I'd love to ask — do you know two other people who might benefit from something similar? A quick intro would mean the world to me."</p>
+</blockquote>
+<p><strong>Remember:</strong> 91% of people say they'd give referrals, but only 11% are ever asked. Just ask.</p>
+<h3>Retainer Proposal</h3>
+<p>If the project lends itself to ongoing maintenance:</p>
+<blockquote>
+<p>"Hey [name], now that [project] is live, I wanted to mention something. Many of my clients find it valuable to have ongoing support — making sure the system runs smoothly, optimizing based on real data, and handling any issues. I offer a monthly maintenance plan for $[amount]/month, which covers support, updates, and optimization. Would that be useful for you?"</p>
+</blockquote>
+<p><strong>Retainer pricing:</strong> 20% of the implementation fee per month<br />
+- $2,500 project → $500/month<br />
+- $5,000 project → $1,000/month</p>
+<hr />
+<h2>The Big Picture: Why Delivery Matters for Your Business</h2>
+<p>From the transcript: "The difference between an agency that's struggling and one that's successful isn't how many clients you take on. It's how much value you extract from each client."</p>
+<ul>
+<li>1 client who pays you $10K over 10 months &gt; 10 clients who pay you $1K each</li>
+<li>Great delivery → referrals → more clients without more outreach</li>
+<li>Great delivery → upsells → more revenue without finding new clients</li>
+<li>Great delivery → retainers → predictable monthly income</li>
+</ul>
+<p>The best clients are the ones you've solved the most problems for. Don't chase 100 new clients — go deeper with the ones you have.</p>
+    <div class="footer">
+        AI Agency Coaching Program &mdash; Confidential
+    </div>
+</body>
+</html>

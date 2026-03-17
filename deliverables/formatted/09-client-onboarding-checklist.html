@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Onboarding Checklist</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent-light: #fef0f2;
+    --bg: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e5e7eb;
+    --bg-alt: #f9fafb;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+.back-nav { background: var(--bg-alt); padding: 10px 24px; }
+.back-nav a { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; }
+.back-nav a:hover { text-decoration: underline; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+    size: A4;
+    margin: 2cm 2.5cm;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: var(--bg);
+    font-size: 15px;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--accent);
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 14px;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ── Lists ───────────────────────────────────────────── */
+ul, ol {
+    margin-bottom: 14px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+li > ul, li > ol {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* ── Blockquotes (message templates) ─────────────────── */
+blockquote {
+    background: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text);
+}
+
+blockquote p {
+    margin-bottom: 8px;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+thead {
+    background: var(--primary);
+    color: white;
+}
+
+th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--bg-alt);
+}
+
+tbody tr:hover {
+    background: var(--accent-light);
+}
+
+/* ── Code / Pre ──────────────────────────────────────── */
+code {
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+pre {
+    background: var(--primary);
+    color: #e0e0e0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-size: 13px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+/* ── Horizontal Rules ────────────────────────────────── */
+hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 32px 0;
+}
+
+/* ── Checkboxes (rendered as list items) ─────────────── */
+li input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--accent);
+}
+
+/* ── Strong / Bold ───────────────────────────────────── */
+strong {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ── Fill-in blanks ──────────────────────────────────── */
+.blank-line {
+    display: inline-block;
+    min-width: 300px;
+    border-bottom: 1px solid var(--border);
+    margin: 4px 0;
+}
+
+/* ── Header bar (top of page) ────────────────────────── */
+.header-bar {
+    background: var(--primary);
+    color: white;
+    padding: 24px 32px;
+    margin: -40px -24px 32px;
+    border-radius: 0 0 12px 12px;
+}
+
+.header-bar h1 {
+    color: white;
+    border-bottom: none;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.header-bar .subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* ── Print styles ────────────────────────────────────── */
+@media print {
+    body {
+        padding: 0;
+        font-size: 12px;
+        max-width: none;
+    }
+    .header-bar {
+        margin: 0 0 24px;
+        border-radius: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    thead {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    tbody tr:nth-child(even) {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .no-print { display: none; }
+}
+</style>
+</head>
+<body>
+    <nav class="back-nav"><a href="../../index.html">← Back to All Deliverables</a></nav>
+    <div class="header-bar">
+        <h1>Client Onboarding Checklist</h1>
+        <div class="subtitle">AI Agency Coaching Program</div>
+    </div>
+    <h1>Client Onboarding Checklist</h1>
+<p>Use this checklist every time you sign a new client. This is directly from the 6-step delivery framework. The onboarding call is one of the most important steps in the entire delivery process — you set expectations and get everything you need to build.</p>
+<hr />
+<h2>Before the Onboarding Call</h2>
+<ul>
+<li><input type="checkbox" disabled> <strong>Payment confirmed</strong> — No payment, no work. Period.</li>
+<li>If paid: first installment received (50% upfront or 100% upfront)</li>
+<li>If free client: clearly outlined what you're giving them AND what they give you (testimonial + 2 referrals)</li>
+<li><input type="checkbox" disabled> <strong>Contract/agreement in place</strong> — Even informal, define: what you're building, what "done" looks like, what they provide in return</li>
+<li><input type="checkbox" disabled> <strong>Onboarding call scheduled</strong> — Book a 45-60 minute call</li>
+</ul>
+<hr />
+<h2>The Onboarding Call Agenda</h2>
+<h3>1. Set Timeline Expectations</h3>
+<ul>
+<li><input type="checkbox" disabled> Tell the client how long the project will take</li>
+<li><input type="checkbox" disabled> Break the project into milestones:</li>
+<li>"Week 1: Setup and integrations"</li>
+<li>"Week 2: Building the core automation"</li>
+<li>"Week 3: Testing"</li>
+<li>"Week 4: Final tweaks and handoff"</li>
+<li><input type="checkbox" disabled> <strong>Underpromise by 1-2 weeks.</strong> If you think it takes 3 weeks, tell them 4-5 weeks. If you deliver early, you overdeliver.</li>
+</ul>
+<p>Write your milestones here:</p>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Milestone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>2. Set Availability Expectations</h3>
+<ul>
+<li><input type="checkbox" disabled> Tell them when you're available to communicate</li>
+<li>Example: "I'll respond to messages within 24 hours on weekdays"</li>
+<li>Example: "I'm available Monday-Friday, 9 AM-6 PM"</li>
+<li><input type="checkbox" disabled> Be clear about this upfront — if they expect instant responses and you don't deliver, you look unprofessional</li>
+</ul>
+<p>Your availability:</p>
+<hr />
+<h3>3. Choose ONE Communication Channel</h3>
+<ul>
+<li><input type="checkbox" disabled> Pick ONE platform and stick to it. Don't email AND text AND Slack AND WhatsApp.</li>
+<li><input type="checkbox" disabled> Options: WhatsApp (free, easy), Slack (professional, organized), or whatever the client prefers</li>
+<li><input type="checkbox" disabled> Ask them: "What's the easiest way for us to stay in touch throughout the project?"</li>
+</ul>
+<p>Communication channel: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>_____</p>
+<h3>4. Get All Software Access</h3>
+<p>This is critical. Do NOT get off the call without having everything you need.</p>
+<ul>
+<li><input type="checkbox" disabled> <strong>Automation platform access:</strong></li>
+<li>Have the client create their own account (Make/n8n/Voiceflow)</li>
+<li>Have them add you as a user/collaborator in their account</li>
+<li>
+<p>Walk them through it on the call: "Can you share your screen? Go to Settings → Add User → enter my email"</p>
+</li>
+<li>
+<p><input type="checkbox" disabled> <strong>API keys:</strong></p>
+</li>
+<li>The client creates and pays for API accounts (OpenAI, Claude, Twilio, etc.)</li>
+<li>They generate the API key and share it with you</li>
+<li>
+<p>The client pays for all API costs</p>
+</li>
+<li>
+<p><input type="checkbox" disabled> <strong>Other software access:</strong></p>
+</li>
+<li>CRM login (if integrating with their CRM)</li>
+<li>Email marketing platform access (if relevant)</li>
+<li>
+<p>Any other tools they currently use that you'll need to connect</p>
+</li>
+<li>
+<p><input type="checkbox" disabled> <strong>Who pays for what:</strong></p>
+</li>
+<li>Client pays for: all software subscriptions, API keys, hosting</li>
+<li>You pay for: nothing (unless you're hosting the automation on your own account for a retainer model)</li>
+</ul>
+<p><strong>Exception — Retainer/hosted model:</strong><br />
+If you're charging a retainer to maintain the system (e.g., a voice agent), you may host it on your own account. This creates dependency — the client stays because you manage everything. But they still pay for APIs (OpenAI, Twilio, etc.).</p>
+<p>Software access checklist:<br />
+- <input type="checkbox" disabled> Automation platform account created and you've been added<br />
+- <input type="checkbox" disabled> API keys generated and shared with you<br />
+- <input type="checkbox" disabled> CRM/other tool access provided<br />
+- <input type="checkbox" disabled> All software costs on the client's accounts</p>
+<hr />
+<h2>After the Onboarding Call</h2>
+<ul>
+<li><input type="checkbox" disabled> <strong>Send a confirmation message</strong> summarizing what was discussed:</li>
+</ul>
+<blockquote>
+<p>"Hey [client name], great call today! Just to recap:</p>
+<ul>
+<li>Project: [what you're building]</li>
+<li>Timeline: [X weeks], with the first milestone ([milestone 1]) by [date]</li>
+<li>Communication: We'll use [WhatsApp/Slack] for all project communication</li>
+<li>I'll send you weekly updates every [day of week]</li>
+<li>Next step: I'll start working on [first milestone] and update you by [date]</li>
+</ul>
+<p>Excited to get started!"</p>
+</blockquote>
+<ul>
+<li><input type="checkbox" disabled> <strong>Add the client to your KPI tracker</strong> (Client Tracker tab)</li>
+<li><input type="checkbox" disabled> <strong>Set up your weekly update reminder</strong> (pick a day — send updates the same day every week)</li>
+<li><input type="checkbox" disabled> <strong>Start working on Milestone 1</strong></li>
+</ul>
+<hr />
+<h2>Quick Reference: The Full 6-Step Delivery Framework</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What</th>
+<th>When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Payment</td>
+<td>Get paid before starting work</td>
+<td>Before onboarding</td>
+</tr>
+<tr>
+<td>2. Onboarding</td>
+<td>Set expectations, get software access</td>
+<td>Day 1</td>
+</tr>
+<tr>
+<td>3. Progress Updates</td>
+<td>Weekly messages to the client</td>
+<td>Every week during the project</td>
+</tr>
+<tr>
+<td>4. Testing</td>
+<td>End-to-end, edge cases, 5-10+ runs</td>
+<td>Before delivery</td>
+</tr>
+<tr>
+<td>5. Documentation</td>
+<td>Loom video + written SOP</td>
+<td>At delivery</td>
+</tr>
+<tr>
+<td>6. Handoff + Referrals</td>
+<td>Delivery email, PS upsell, ask for referrals</td>
+<td>Project completion</td>
+</tr>
+</tbody>
+</table>
+<p>For the full details on steps 3-6, see the Delivery Framework Template.</p>
+    <div class="footer">
+        AI Agency Coaching Program &mdash; Confidential
+    </div>
+</body>
+</html>

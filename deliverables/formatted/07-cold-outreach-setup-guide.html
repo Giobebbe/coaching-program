@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cold Outreach Setup Guide</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent-light: #fef0f2;
+    --bg: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e5e7eb;
+    --bg-alt: #f9fafb;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+.back-nav { background: var(--bg-alt); padding: 10px 24px; }
+.back-nav a { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; }
+.back-nav a:hover { text-decoration: underline; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+    size: A4;
+    margin: 2cm 2.5cm;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: var(--bg);
+    font-size: 15px;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--accent);
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 14px;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ── Lists ───────────────────────────────────────────── */
+ul, ol {
+    margin-bottom: 14px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+li > ul, li > ol {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* ── Blockquotes (message templates) ─────────────────── */
+blockquote {
+    background: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text);
+}
+
+blockquote p {
+    margin-bottom: 8px;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+thead {
+    background: var(--primary);
+    color: white;
+}
+
+th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--bg-alt);
+}
+
+tbody tr:hover {
+    background: var(--accent-light);
+}
+
+/* ── Code / Pre ──────────────────────────────────────── */
+code {
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+pre {
+    background: var(--primary);
+    color: #e0e0e0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-size: 13px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+/* ── Horizontal Rules ────────────────────────────────── */
+hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 32px 0;
+}
+
+/* ── Checkboxes (rendered as list items) ─────────────── */
+li input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--accent);
+}
+
+/* ── Strong / Bold ───────────────────────────────────── */
+strong {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ── Fill-in blanks ──────────────────────────────────── */
+.blank-line {
+    display: inline-block;
+    min-width: 300px;
+    border-bottom: 1px solid var(--border);
+    margin: 4px 0;
+}
+
+/* ── Header bar (top of page) ────────────────────────── */
+.header-bar {
+    background: var(--primary);
+    color: white;
+    padding: 24px 32px;
+    margin: -40px -24px 32px;
+    border-radius: 0 0 12px 12px;
+}
+
+.header-bar h1 {
+    color: white;
+    border-bottom: none;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.header-bar .subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* ── Print styles ────────────────────────────────────── */
+@media print {
+    body {
+        padding: 0;
+        font-size: 12px;
+        max-width: none;
+    }
+    .header-bar {
+        margin: 0 0 24px;
+        border-radius: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    thead {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    tbody tr:nth-child(even) {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .no-print { display: none; }
+}
+</style>
+</head>
+<body>
+    <nav class="back-nav"><a href="../../index.html">← Back to All Deliverables</a></nav>
+    <div class="header-bar">
+        <h1>Cold Outreach Setup Guide</h1>
+        <div class="subtitle">AI Agency Coaching Program</div>
+    </div>
+    <h1>Cold Outreach Setup Guide</h1>
+<h2>When to Use Cold Outreach</h2>
+<p>Cold outreach is for <strong>scaling</strong> — not for getting your first client.</p>
+<ul>
+<li><strong>ONLY start cold outreach after your warm network is exhausted</strong> (typically Weeks 4-6+)</li>
+<li>By this point, you should already have: testimonials, at least one case study, and a clear offer</li>
+<li>Your first clients come from warm outreach (see <a href="./03-warm-outreach-templates.md">Warm Outreach Templates</a>)</li>
+<li>Cold outreach works because you now have <strong>proof</strong> — you can reference real results from your free clients</li>
+</ul>
+<blockquote>
+<p>If you don't have testimonials yet, go back to warm outreach. Cold email without proof is just spam.</p>
+</blockquote>
+<hr />
+<h2>Why We Set Up Infrastructure on Day 1</h2>
+<p>Here's the catch: domain warmup takes <strong>21+ days</strong>.</p>
+<p>If you wait until Week 4 to buy domains, you won't be able to send cold emails until Week 7+. That's almost two months wasted.</p>
+<p><strong>The move:</strong> Buy and warm up your domains from Day 1 while you focus entirely on warm outreach. By the time you've exhausted your warm network and collected testimonials, your cold email infrastructure is ready to go.</p>
+<hr />
+<h2>Step 1: Buy Your Domains (Day 1)</h2>
+<p>You need <strong>secondary domains</strong> — never send cold email from your primary business domain. If your cold emails get flagged as spam, it won't affect your main domain's reputation.</p>
+<h3>What to buy</h3>
+<ul>
+<li>1-2 secondary domains that look similar to your primary domain</li>
+<li>If your primary is <code>youragency.com</code>, buy something like:</li>
+<li><code>youragencymail.com</code></li>
+<li><code>youragency.io</code></li>
+<li><code>youragencyhq.com</code></li>
+<li><strong>Avoid</strong> hyphens, numbers, and anything that looks suspicious</li>
+</ul>
+<h3>Where to buy</h3>
+<p>Any of these registrars work:<br />
+- <strong>Namecheap</strong> (cheapest option, easy DNS management)<br />
+- <strong>Cloudflare</strong> (at-cost pricing, great DNS)<br />
+- <strong>GoDaddy</strong> (most popular, slightly more expensive)<br />
+- <strong>Google Domains</strong> (simple if you're already in Google ecosystem)</p>
+<h3>How many domains</h3>
+<ul>
+<li><strong>Start with 2 domains</strong></li>
+<li>Each domain can safely send <strong>40-50 cold emails per day</strong> once fully warmed</li>
+<li>2 domains = <strong>80-100 emails/day capacity</strong> at full deployment</li>
+<li>You can add more domains later as you scale</li>
+</ul>
+<h3>Set up email accounts on each domain</h3>
+<p>For each domain, create <strong>2-3 mailboxes</strong>. Examples:<br />
+- <code>giovanni@youragencymail.com</code><br />
+- <code>g.beggiato@youragencymail.com</code><br />
+- <code>giovanni@youragency.io</code></p>
+<p><strong>Use Google Workspace or Microsoft Outlook</strong> for the mailboxes — these have the best deliverability.</p>
+<p><strong>Google Workspace setup:</strong><br />
+1. Go to <a href="https://workspace.google.com">workspace.google.com</a><br />
+2. Start a Business Starter plan (~$7/user/month)<br />
+3. Add your secondary domain<br />
+4. Create the mailboxes listed above</p>
+<hr />
+<h2>Step 2: Configure Email Authentication (Day 1)</h2>
+<p>This is the most technical step, but it's critical. Without these three records, your emails <strong>will</strong> land in spam.</p>
+<p>You'll be adding <strong>DNS records</strong> — text entries in your domain's settings that tell email servers your emails are legitimate.</p>
+<h3>SPF Record (Sender Policy Framework)</h3>
+<p><strong>What it does:</strong> Tells email servers which systems are allowed to send email on behalf of your domain.</p>
+<p><strong>How to set it up:</strong><br />
+1. Log into your domain registrar (Namecheap, Cloudflare, etc.)<br />
+2. Go to <strong>DNS Settings</strong> or <strong>DNS Management</strong><br />
+3. Add a new <strong>TXT record</strong> with these values:<br />
+   - <strong>Host/Name:</strong> <code>@</code><br />
+   - <strong>Type:</strong> <code>TXT</code><br />
+   - <strong>Value:</strong> <code>v=spf1 include:_spf.google.com ~all</code><br />
+   - (If using Outlook, the value is different — Google "Microsoft 365 SPF record")<br />
+4. Save the record</p>
+<h3>DKIM Record (DomainKeys Identified Mail)</h3>
+<p><strong>What it does:</strong> Adds a digital signature to your emails that proves they weren't tampered with in transit.</p>
+<p><strong>How to set it up:</strong><br />
+1. Log into your <strong>Google Workspace Admin Console</strong> (admin.google.com)<br />
+2. Go to <strong>Apps &gt; Google Workspace &gt; Gmail</strong><br />
+3. Click <strong>Authenticate email</strong><br />
+4. Click <strong>Generate new record</strong> — Google will give you a TXT record value<br />
+5. Copy that value and add it as a <strong>TXT record</strong> in your domain's DNS settings<br />
+6. Go back to Google Workspace and click <strong>Start authentication</strong></p>
+<h3>DMARC Record (Domain-based Message Authentication)</h3>
+<p><strong>What it does:</strong> Tells receiving email servers what to do with emails that fail SPF or DKIM checks.</p>
+<p><strong>How to set it up:</strong><br />
+1. In your domain's DNS settings, add a new <strong>TXT record</strong>:<br />
+   - <strong>Host/Name:</strong> <code>_dmarc</code><br />
+   - <strong>Type:</strong> <code>TXT</code><br />
+   - <strong>Value:</strong> <code>v=DMARC1; p=none; rua=mailto:youremail@gmail.com</code><br />
+   - (Replace <code>youremail@gmail.com</code> with an email where you want to receive reports)<br />
+2. Save the record</p>
+<h3>Verification</h3>
+<ul>
+<li>After setting up all three records, wait 24-48 hours for DNS propagation</li>
+<li>Use <a href="https://mxtoolbox.com/SuperTool.aspx">MXToolbox</a> to verify your records are set up correctly</li>
+<li>Search for your domain and check SPF, DKIM, and DMARC status</li>
+<li>If anything shows red, Google "[your registrar] + [the record type] setup guide" — every provider has a walkthrough</li>
+</ul>
+<hr />
+<h2>Step 3: Set Up Instantly.ai (Day 1)</h2>
+<p>Instantly is the tool that manages your cold email sending, warmup, and campaigns. It's the industry standard for cold outreach.</p>
+<h3>Account setup</h3>
+<ol>
+<li>Go to <a href="https://instantly.ai">instantly.ai</a> and create an account</li>
+<li>Choose the <strong>Growth</strong> plan ($30/month) — it covers unlimited email accounts and warmup</li>
+<li>Connect your email accounts:<br />
+   - Go to <strong>Email Accounts</strong> in the left sidebar<br />
+   - Click <strong>Add New</strong> and select <strong>Google Workspace</strong> (or Outlook)<br />
+   - Follow the prompts to connect each mailbox you created in Step 1</li>
+<li><strong>Enable warmup</strong> for every connected account:<br />
+   - Click on each email account<br />
+   - Toggle <strong>Warmup</strong> to ON<br />
+   - That's it — Instantly handles the rest automatically</li>
+</ol>
+<h3>Warmup settings</h3>
+<ul>
+<li>Instantly will <strong>automatically</strong> increase your warmup volume over time</li>
+<li>You don't need to configure anything manually</li>
+<li><strong>Keep warmup running forever</strong> — even after you start sending real campaigns</li>
+<li>Warmup works by exchanging emails with other Instantly users' accounts, which builds your sender reputation with email providers</li>
+</ul>
+<hr />
+<h2>Step 4: The Warmup Timeline</h2>
+<p>This is your roadmap from Day 1 to full cold email deployment. <strong>Follow this exactly.</strong></p>
+<h3>Days 1-14 (Weeks 1-2): Warmup Only</h3>
+<table>
+<thead>
+<tr>
+<th>What's happening</th>
+<th>What you do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instantly sends 5-50 warmup emails/day automatically</td>
+<td><strong>Nothing with cold email.</strong> Focus 100% on warm outreach.</td>
+</tr>
+<tr>
+<td>Your sender reputation is being established</td>
+<td>Work your warm network, get free clients, collect testimonials</td>
+</tr>
+<tr>
+<td>Warmup emails are being opened, replied to, and marked as "not spam" by other Instantly accounts</td>
+<td>Set up your lead list (Step 5) so it's ready when you are</td>
+</tr>
+</tbody>
+</table>
+<h3>Days 15-21 (Week 3): Warmup Only (Still)</h3>
+<table>
+<thead>
+<tr>
+<th>What's happening</th>
+<th>What you do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Warmup volume climbs to 50-90 emails/day</td>
+<td><strong>Still no cold emails.</strong> Your domains aren't ready yet.</td>
+</tr>
+<tr>
+<td>Deliverability score is climbing</td>
+<td>Check your Instantly dashboard — you should see scores improving</td>
+</tr>
+<tr>
+<td>Email providers are starting to trust your domain</td>
+<td>Continue warm outreach. Write your cold email templates (Step 6).</td>
+</tr>
+</tbody>
+</table>
+<h3>Days 22-30 (Week 4): Start Mixing Cold Emails</h3>
+<table>
+<thead>
+<tr>
+<th>What's happening</th>
+<th>What you do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Domains are now partially warmed</td>
+<td>Start sending <strong>20-30 cold emails/day</strong> per account</td>
+</tr>
+<tr>
+<td>Cold emails should be 20-30% of your total daily volume</td>
+<td>The remaining 70-80% is still warmup</td>
+</tr>
+<tr>
+<td>Example: warmup is at 100/day, send 20-30 cold + 70-80 warmup</td>
+<td><strong>Use your best leads first</strong> — don't waste early sends on untested copy</td>
+</tr>
+</tbody>
+</table>
+<h3>Days 31-60 (Weeks 5-8): Scale Up</h3>
+<table>
+<thead>
+<tr>
+<th>What's happening</th>
+<th>What you do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Domains are well-established</td>
+<td>Increase to <strong>50-70 cold emails/day</strong> per domain</td>
+</tr>
+<tr>
+<td>Cold emails = 50-70% of daily capacity</td>
+<td>Continue warmup in parallel (always)</td>
+</tr>
+<tr>
+<td>You should be getting replies and booking calls</td>
+<td>Monitor: open rates, reply rates, bounce rates (see Step 7)</td>
+</tr>
+</tbody>
+</table>
+<h3>Days 61-90 (Weeks 9-12): Full Deployment</h3>
+<table>
+<thead>
+<tr>
+<th>What's happening</th>
+<th>What you do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Domains are fully warmed</td>
+<td>Send <strong>80-100 cold emails/day</strong> per domain</td>
+</tr>
+<tr>
+<td>Cold emails = 80%+ of daily capacity</td>
+<td>A/B test subject lines and email copy based on your data</td>
+</tr>
+<tr>
+<td>With 2 domains, you're sending 160-200 emails/day</td>
+<td>Optimize based on what's working</td>
+</tr>
+</tbody>
+</table>
+<h3>Key rules (non-negotiable)</h3>
+<ul>
+<li><strong>NEVER stop warmup</strong> — run it forever alongside your campaigns</li>
+<li><strong>If bounce rate goes above 3%</strong> — reduce volume immediately and clean your list</li>
+<li><strong>If open rate drops below 27%</strong> — check your subject lines and deliverability score</li>
+<li><strong>Don't increase volume</strong> until you're consistently hitting 80%+ inbox placement</li>
+<li><strong>If in doubt, slow down</strong> — it's better to send 30 emails that land in the inbox than 200 that land in spam</li>
+</ul>
+<hr />
+<h2>Step 5: Building Your Lead List</h2>
+<p>Your lead list is the single biggest factor in whether cold outreach works. A perfect email sent to the wrong person is worthless.</p>
+<h3>Where to find leads</h3>
+<p><strong>LinkedIn Sales Navigator</strong> (~$100/month)<br />
+- Search by: industry, company size, role, location<br />
+- Filter for decision makers at small businesses<br />
+- Best for B2B service businesses</p>
+<p><strong>Apollo.io</strong> (free tier available)<br />
+- Email finding + company data<br />
+- Can search by company size, industry, tech stack<br />
+- Good for building targeted lists with verified emails</p>
+<p><strong>Google Maps</strong><br />
+- Search for local businesses in specific industries (e.g., "roofing companies in Dallas")<br />
+- Great for local service businesses<br />
+- Find owners' names, then look them up on LinkedIn or Apollo</p>
+<h3>What to look for in a lead</h3>
+<ul>
+<li><strong>Small to mid-size businesses</strong> (1-50 employees) — these are your ideal clients</li>
+<li><strong>Businesses with obvious manual processes</strong> — if you can see they're doing something by hand that could be automated, that's a lead</li>
+<li><strong>Industries you've had success with</strong> — use what you learned from your warm outreach clients</li>
+<li><strong>Decision makers:</strong> owners, founders, operations managers, marketing managers — the people who can say yes and pay you</li>
+</ul>
+<h3>List hygiene (this step is critical)</h3>
+<p>Before you upload any list to Instantly:</p>
+<ol>
+<li><strong>Verify every email</strong> using a verification tool:<br />
+   - <a href="https://neverbounce.com">NeverBounce</a> — ~$0.003/email<br />
+   - <a href="https://zerobounce.net">ZeroBounce</a> — ~$0.007/email<br />
+   - Upload your list, remove any emails that come back as "invalid" or "risky"</li>
+<li><strong>Remove duplicates</strong> — don't email the same person twice from different accounts</li>
+<li><strong>Start small</strong> — don't import more than 200-300 leads at a time</li>
+<li><strong>Quality over quantity</strong> — 200 targeted leads who match your ideal client profile will outperform 2,000 random business owners every time</li>
+</ol>
+<hr />
+<h2>Step 6: Cold Email Templates</h2>
+<p>These templates work because they're <strong>specific</strong> — they reference the recipient's business, industry, or situation. Generic emails get deleted.</p>
+<h3>Template 1: The Problem-Agitate-Solution</h3>
+<p><strong>Subject:</strong> Quick question about [their company name]</p>
+<blockquote>
+<p>Hi [first name],</p>
+<p>I noticed [something specific about their business — e.g., "you're running Facebook ads for your roofing company"].</p>
+<p>Most [industry] businesses I've spoken to are losing leads because they can't respond fast enough — especially after hours.</p>
+<p>I help businesses like yours [outcome — e.g., "respond to every lead within 60 seconds, 24/7, using AI"] so you never lose a deal to a slower competitor.</p>
+<p>Would it make sense to hop on a quick call this week to see if this could work for you?</p>
+<p>[Your name]</p>
+</blockquote>
+<p><strong>Why it works:</strong> Opens with something specific to them (shows you did research), agitates a real pain point, then offers a clear solution.</p>
+<h3>Template 2: The Case Study</h3>
+<p><strong>Subject:</strong> How [similar business] [achieved result]</p>
+<blockquote>
+<p>Hi [first name],</p>
+<p>I recently helped a [industry] business [specific result — e.g., "cut their lead response time from 4 hours to under 60 seconds"].</p>
+<p>They were losing about [X leads per month] because nobody was answering after 5 PM. We set up an AI system that handles it automatically.</p>
+<p>I think something similar could work for [their company name]. Open to a quick chat?</p>
+<p>[Your name]</p>
+</blockquote>
+<p><strong>Why it works:</strong> Leads with proof (your testimonial/case study from warm outreach clients). This is why you needed those results before starting cold outreach.</p>
+<h3>Template 3: The Direct Question</h3>
+<p><strong>Subject:</strong> [Their company name] + AI</p>
+<blockquote>
+<p>Hi [first name],</p>
+<p>Quick question — are you currently using any AI or automation in your business?</p>
+<p>I work with [industry] businesses to automate [specific process], and I'd love to see if there's an opportunity to help [their company name].</p>
+<p>Worth a 15-minute call?</p>
+<p>[Your name]</p>
+</blockquote>
+<p><strong>Why it works:</strong> Short, non-threatening, asks a genuine question. Gets replies even from people who aren't sure they need help yet.</p>
+<h3>Follow-up sequence</h3>
+<p>Most replies come from <strong>follow-ups</strong>, not the first email. Set these up as automated follow-ups in Instantly.</p>
+<p><strong>Follow-up 1 (3 days after initial email):</strong></p>
+<blockquote>
+<p>Hey [name], just bumping this to the top of your inbox. Would love to chat if you're open to it.</p>
+</blockquote>
+<p><strong>Follow-up 2 (5 days after Follow-up 1):</strong></p>
+<blockquote>
+<p>Hi [name], I know you're busy — just wanted to check if [outcome] is something you'd be interested in. If not, no worries at all.</p>
+</blockquote>
+<p><strong>Follow-up 3 (7 days after Follow-up 2):</strong></p>
+<blockquote>
+<p>Last one from me, [name]. If the timing isn't right, totally understand. But if [problem] is still a challenge, I'd love to help. Just reply "yes" and I'll send over some details.</p>
+</blockquote>
+<p><strong>Rules for follow-ups:</strong><br />
+- Keep them short (2-3 sentences max)<br />
+- Don't repeat your entire pitch — they already saw it<br />
+- The last follow-up should make it easy to say yes ("just reply yes")<br />
+- 3 follow-ups is enough. After that, move on.</p>
+<hr />
+<h2>Step 7: Monitoring &amp; Optimization</h2>
+<h3>What to check daily (takes 5 minutes)</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>If it's off</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bounce rate</strong></td>
+<td>Under 3%</td>
+<td>Your list quality is bad — stop sending, verify and clean your list</td>
+</tr>
+<tr>
+<td><strong>Open rate</strong></td>
+<td>27-44% average, 40-60% is good</td>
+<td>Rewrite your subject lines or check deliverability score</td>
+</tr>
+<tr>
+<td><strong>Reply rate</strong></td>
+<td>3-4% average, 5-10% is good</td>
+<td>Rewrite your email body — your copy isn't resonating</td>
+</tr>
+<tr>
+<td><strong>Spam complaints</strong></td>
+<td>Near 0%</td>
+<td>Your copy is too aggressive or you're emailing the wrong people</td>
+</tr>
+</tbody>
+</table>
+<h3>What to check weekly</h3>
+<ul>
+<li>Which <strong>subject lines</strong> get the highest open rates? Double down on what works.</li>
+<li>Which <strong>email template</strong> gets the most replies? Use it more.</li>
+<li>Are replies <strong>positive or negative</strong>? If mostly negative, your targeting or copy needs work.</li>
+<li>Are you <strong>booking meetings</strong> from replies? If getting replies but not meetings, your call-to-action needs work.</li>
+</ul>
+<h3>When to hit the pause button</h3>
+<ul>
+<li><strong>Bounce rate above 5%:</strong> Stop sending immediately. Clean your entire list with a verification tool before resuming.</li>
+<li><strong>Deliverability score dropping in Instantly:</strong> Reduce cold email volume and increase warmup ratio back to 70-80%.</li>
+<li><strong>Getting spam complaints:</strong> Rewrite your copy — it's too salesy or aggressive. Remove anyone who complains from all future lists.</li>
+</ul>
+<hr />
+<h2>Common Mistakes to Avoid</h2>
+<ol>
+<li><strong>Starting cold email before you have testimonials/proof</strong> — this is the #1 mistake. Cold email without social proof is just noise. Get results from warm outreach first.</li>
+<li><strong>Sending 200+ emails/day from a brand new domain</strong> — your domain will get blacklisted. Follow the warmup timeline exactly.</li>
+<li><strong>Not verifying your email list</strong> — one bad list can destroy your domain reputation. Always verify before uploading.</li>
+<li><strong>Writing generic copy</strong> — "Hi, I help businesses grow" gets deleted. Reference something specific about the recipient's business.</li>
+<li><strong>Forgetting to follow up</strong> — most responses come from follow-ups 2 and 3, not the first email. Set up automated follow-ups.</li>
+<li><strong>Stopping warmup once campaigns start</strong> — warmup runs forever. Period.</li>
+<li><strong>No clear offer for no clear person with no clear problem</strong> — if you can't fill in the blank "I help [specific person] solve [specific problem] by [specific method]," your cold email won't work.</li>
+</ol>
+<hr />
+<h2>Quick-Start Checklist</h2>
+<p>Use this to track your progress:</p>
+<ul>
+<li><input type="checkbox" disabled> Buy 2 secondary domains (Day 1)</li>
+<li><input type="checkbox" disabled> Set up 2-3 mailboxes per domain with Google Workspace (Day 1)</li>
+<li><input type="checkbox" disabled> Configure SPF, DKIM, and DMARC records for each domain (Day 1)</li>
+<li><input type="checkbox" disabled> Verify DNS records are correct using MXToolbox (Day 2 — after propagation)</li>
+<li><input type="checkbox" disabled> Create Instantly.ai account and connect all email accounts (Day 1)</li>
+<li><input type="checkbox" disabled> Turn on warmup for every account (Day 1)</li>
+<li><input type="checkbox" disabled> Focus on warm outreach while domains warm up (Weeks 1-3)</li>
+<li><input type="checkbox" disabled> Build and verify your lead list (Week 2-3)</li>
+<li><input type="checkbox" disabled> Write your cold email templates using your testimonials (Week 3)</li>
+<li><input type="checkbox" disabled> Start sending cold emails at 20-30% volume (Week 4)</li>
+<li><input type="checkbox" disabled> Scale to 50-70% volume (Weeks 5-8)</li>
+<li><input type="checkbox" disabled> Full deployment at 80%+ volume (Weeks 9-12)</li>
+</ul>
+<hr />
+<p><em>This guide is part of the AI Agency Coaching Program. For warm outreach strategies (which come first), see <a href="./03-warm-outreach-templates.md">Warm Outreach Templates</a>.</em></p>
+    <div class="footer">
+        AI Agency Coaching Program &mdash; Confidential
+    </div>
+</body>
+</html>

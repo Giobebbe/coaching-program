@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agency Launch Program — 12-Week Roadmap</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent-light: #fef0f2;
+    --bg: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e5e7eb;
+    --bg-alt: #f9fafb;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+.back-nav { background: var(--bg-alt); padding: 10px 24px; }
+.back-nav a { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; }
+.back-nav a:hover { text-decoration: underline; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+    size: A4;
+    margin: 2cm 2.5cm;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: var(--bg);
+    font-size: 15px;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--accent);
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 14px;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ── Lists ───────────────────────────────────────────── */
+ul, ol {
+    margin-bottom: 14px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+li > ul, li > ol {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* ── Blockquotes (message templates) ─────────────────── */
+blockquote {
+    background: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text);
+}
+
+blockquote p {
+    margin-bottom: 8px;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+thead {
+    background: var(--primary);
+    color: white;
+}
+
+th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--bg-alt);
+}
+
+tbody tr:hover {
+    background: var(--accent-light);
+}
+
+/* ── Code / Pre ──────────────────────────────────────── */
+code {
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+pre {
+    background: var(--primary);
+    color: #e0e0e0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-size: 13px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+/* ── Horizontal Rules ────────────────────────────────── */
+hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 32px 0;
+}
+
+/* ── Checkboxes (rendered as list items) ─────────────── */
+li input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--accent);
+}
+
+/* ── Strong / Bold ───────────────────────────────────── */
+strong {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ── Fill-in blanks ──────────────────────────────────── */
+.blank-line {
+    display: inline-block;
+    min-width: 300px;
+    border-bottom: 1px solid var(--border);
+    margin: 4px 0;
+}
+
+/* ── Header bar (top of page) ────────────────────────── */
+.header-bar {
+    background: var(--primary);
+    color: white;
+    padding: 24px 32px;
+    margin: -40px -24px 32px;
+    border-radius: 0 0 12px 12px;
+}
+
+.header-bar h1 {
+    color: white;
+    border-bottom: none;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.header-bar .subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* ── Print styles ────────────────────────────────────── */
+@media print {
+    body {
+        padding: 0;
+        font-size: 12px;
+        max-width: none;
+    }
+    .header-bar {
+        margin: 0 0 24px;
+        border-radius: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    thead {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    tbody tr:nth-child(even) {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .no-print { display: none; }
+}
+</style>
+</head>
+<body>
+    <nav class="back-nav"><a href="../../index.html">← Back to All Deliverables</a></nav>
+    <div class="header-bar">
+        <h1>AI Agency Launch Program — 12-Week Roadmap</h1>
+        <div class="subtitle">AI Agency Coaching Program</div>
+    </div>
+    <h1>AI Agency Launch Program — 12-Week Roadmap</h1>
+<h2>Program Overview</h2>
+<p>This is your 12-week roadmap to launching your AI automation agency. Everything here is input-driven — it tells you exactly what to DO each week and WHY. Follow the steps, hit your daily inputs, and the results will take care of themselves.</p>
+<p><strong>Your 3 rules for the next 90 days:</strong><br />
+1. 80% of your time goes to sales (outreach, conversations, follow-ups). 20% to delivery (learning the tool, building).<br />
+2. Focus on inputs you control (messages sent, calls booked) — not outputs you can't (revenue, clients signed).<br />
+3. Warm outreach first. Cold outreach only after your warm network is exhausted and you have testimonials.</p>
+<hr />
+<h2>Your Call Schedule</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Frequency</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Audit Call</td>
+<td>1x (2 hours) — Week 0</td>
+<td>Foundation: expertise, offer, tool, channel, contact list, buy domains</td>
+</tr>
+<tr>
+<td>Strategy Call</td>
+<td>Every 2 weeks</td>
+<td>Input review, accountability, strategy adjustments</td>
+</tr>
+<tr>
+<td>Sales Call</td>
+<td>1x/month (1 hour)</td>
+<td>Review your discovery/sales call recordings, refine your scripts</td>
+</tr>
+<tr>
+<td>24/7 Support</td>
+<td>Continuous</td>
+<td>Async via WhatsApp/Slack — technical help, client replies, deal questions</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Your 6 Milestones</h2>
+<p>These are your "Hard Wins." Each one is a standalone achievement that proves you're making real progress.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Milestone</th>
+<th>Target Week</th>
+<th>How You Prove It</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>The List</strong> — 200+ contacts compiled, first 30 messages sent</td>
+<td>Week 1</td>
+<td>Screenshot of your contact list + sent messages</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>First Client</strong> — Free client signed, project started</td>
+<td>Week 3</td>
+<td>Written/verbal confirmation from client</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>First Testimonial</strong> — Free project delivered, testimonial + referrals collected</td>
+<td>Week 5</td>
+<td>Testimonial received + referral intros made</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>First Dollar</strong> — First paid client closed, payment received</td>
+<td>Week 6-7</td>
+<td>Invoice/payment screenshot</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>The Machine</strong> — Delivery SOP created, cold email running, 3+ clients served</td>
+<td>Week 9</td>
+<td>SOP document + Instantly dashboard screenshot</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Graduation</strong> — Clear niche direction, repeatable process, scaling plan defined</td>
+<td>Week 12</td>
+<td>90-day retrospective document</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>PHASE 1: FOUNDATION (Weeks 0-4) — "Start Talking to People"</h2>
+<h3>Week 0 — Audit Call (2 Hours)</h3>
+<p>This is where we build your foundation. We cover:</p>
+<p><strong>1. Expertise Deep-Dive</strong><br />
+- What industries have you worked in?<br />
+- What do you already know about business processes?<br />
+- Are there any AI solutions you could pitch based on your existing knowledge? (lead gen, CRM automation, audits, etc.)</p>
+<p><strong>2. Offer Crafting</strong><br />
+- What can you realistically offer businesses right now?<br />
+- We start GENERAL — "I help businesses automate their processes using AI"<br />
+- No niche yet. The niche will emerge through experience over the coming weeks.<br />
+- We use the Offer Crafting Worksheet to build your one-sentence offer</p>
+<p><strong>3. Pricing Discussion</strong><br />
+- First 3 clients: FREE (in exchange for testimonial + 2 referrals each)<br />
+- Why free: lower expectations, more room to learn, the real payment is social proof<br />
+- When to start charging: after you have testimonials and referrals<br />
+- Typical beginner pricing: $1,500-2,500 per project</p>
+<p><strong>4. Tool Selection</strong><br />
+- Pick ONE tool: Make.com, n8n, or Voiceflow<br />
+- Commit to it for 90 days. Don't switch.<br />
+- You don't need to be an expert — you need to be good enough to solve one problem for one person</p>
+<p><strong>5. Channel Selection</strong><br />
+- Pick ONE acquisition channel: LinkedIn DMs, WhatsApp, Instagram, SMS — wherever your contacts already are<br />
+- This is where you'll send your warm outreach messages</p>
+<p><strong>6. Build Your Warm Contact List</strong><br />
+- Go through: email contacts, LinkedIn connections, Instagram followers, phone contacts<br />
+- Write down EVERYONE — not 50 people, everyone<br />
+- Target: 200+ names minimum<br />
+- Prioritize: (1) business owners, (2) people who know business owners, (3) everyone else</p>
+<p><strong>7. Buy Instantly Domains</strong><br />
+- Purchase 1-2 secondary domains for cold email (e.g., youragency.io, youragencymail.com)<br />
+- Set up on Instantly and start warmup immediately<br />
+- This runs in the background for 21+ days while you focus on warm outreach</p>
+<p><strong>Homework before Week 1:</strong><br />
+- <input type="checkbox" disabled> Complete warm contact list (200+ names)<br />
+- <input type="checkbox" disabled> Prioritize the list (business owners first)<br />
+- <input type="checkbox" disabled> Send your first 30 messages<br />
+- <input type="checkbox" disabled> Domains purchased and warmup started</p>
+<hr />
+<h3>Week 1 — Launch Warm Outreach</h3>
+<p><strong>Daily Input: Send 30 warm messages/day</strong></p>
+<p><strong>Why 30?</strong> It's enough volume to generate real conversations without burning out while working a 9-to-5.</p>
+<p><strong>Why warm first?</strong> These people already know you. They'll read your message because they recognize your name. You're not a stranger in their inbox.</p>
+<p><strong>Why general (no niche)?</strong> You're not selling anyone anything. You're just asking: "Do you know anyone who might be interested?" You're casting a wide net to see what comes back.</p>
+<p><strong>What to send:</strong> Use the Warm Outreach Templates document. The general message template is:</p>
+<blockquote>
+<p>Hey [name], hope you're doing well. Just wanted to send you a quick message because I recently launched my AI agency that helps businesses to automate their processes using AI. Right now, I'm looking to work with five new businesses to build case studies and testimonials before the end of the month. Do you happen to know anybody who might be interested? Totally cool if not, just thought I'd ask. Let me know.</p>
+</blockquote>
+<p><strong>What's happening in the background:</strong><br />
+- Instantly domains warming up (Day 1-7)<br />
+- Don't touch cold email yet — warmup only</p>
+<p><strong>This week's input tracker:</strong><br />
+| Day | Messages Sent | Follow-ups | Responses | Notes |<br />
+|-----|--------------|------------|-----------|-------|<br />
+| Mon | /30 | | | |<br />
+| Tue | /30 | | | |<br />
+| Wed | /30 | | | |<br />
+| Thu | /30 | | | |<br />
+| Fri | /30 | | | |<br />
+| Sat | /30 | | | |<br />
+| Sun | /30 | | | |</p>
+<p><strong>Reference benchmark:</strong> Expect 18-25% of people you message to respond. Most will say "let me think" or "I'll let you know." That's normal. The ones who connect you to someone — those are gold.</p>
+<p><strong>Milestone 1 checkpoint:</strong> By end of Week 1, you should have your list done and 30+ messages sent. Screenshot it.</p>
+<hr />
+<h3>Week 2 — Follow-Ups + First Conversations</h3>
+<p><strong>Daily input: 30 new messages + follow-ups on all Week 1 non-responses</strong></p>
+<p><strong>The 2-day follow-up rule:</strong> If someone didn't respond to your Week 1 message, follow up after 2 days:</p>
+<blockquote>
+<p>Hey [name], just wanted to check in and see if you had a chance to think of someone who might be a good fit. Let me know if you thought of someone. If not, no worries.</p>
+</blockquote>
+<p><strong>When someone says "I might know someone":</strong><br />
+- Get on a discovery call with that person<br />
+- Don't pitch them. Listen.<br />
+- Ask: "What does your day-to-day look like?" and "What tasks take up the most time?"<br />
+- Ask: "If your business doubled tomorrow, what would break first?"<br />
+- They'll tell you exactly what they need</p>
+<p><strong>What's happening in the background:</strong><br />
+- Domains warming (Day 8-14)</p>
+<p><strong>Strategy Call 1</strong> (this week):<br />
+- Review: how many messages sent, how many responses, what are people saying?<br />
+- Refine messaging if needed<br />
+- Troubleshoot: are you getting ignored? Let's look at the messages.</p>
+<hr />
+<h3>Week 3 — Close First Free Clients</h3>
+<p><strong>By now you should have had several conversations from warm outreach.</strong></p>
+<p><strong>How to close a free client:</strong></p>
+<blockquote>
+<p>I'm building out my portfolio right now, so I'd love to do this for free in exchange for a testimonial and two referrals if you're happy with the work.</p>
+</blockquote>
+<p><strong>Why this works:</strong> There's literally no risk for them — apart from the time they spend walking you through their systems. And you're setting clear expectations upfront about what you want in return (testimonial + 2 referrals).</p>
+<p><strong>What to do once they say yes:</strong><br />
+- Listen to their problems. Don't pitch tools or tech.<br />
+- Tell them the outcome: "I can help you respond to every lead within 5 minutes so you never lose a deal again." Not "I'll build you an n8n automation."<br />
+- Define what "done" looks like — what are you building, and when does the project end?<br />
+- Start building. This is your 20% delivery time.<br />
+- Learn the tool as you go. YouTube, ChatGPT, Claude — figure it out. You don't need to know everything upfront.</p>
+<p><strong>What's happening in the background:</strong><br />
+- Domains warming (Day 15-21 — almost ready)</p>
+<p><strong>Milestone 2 checkpoint:</strong> Free client signed and project started. Get their confirmation in writing.</p>
+<hr />
+<h3>Week 4 — Deliver + Collect First Proof</h3>
+<p><strong>Complete or near-complete your free client projects.</strong></p>
+<p><strong>Delivery essentials (from the Delivery Framework):</strong><br />
+- Send weekly progress updates: "Hey [client], just wanted to give you a quick update. We've finished [milestone]. Next week, we're moving into [next step]. Everything is on track."<br />
+- Test the automation end-to-end — not just the happy path. What happens if something goes wrong?<br />
+- Run it 5-10 times minimum before handing it off</p>
+<p><strong>What's happening with cold email:</strong><br />
+- Domains hit Day 22-28 of warmup<br />
+- You can start mixing in 20-30% real cold emails alongside warmup traffic<br />
+- Don't blast. Start slow: 20-30 cold emails/day mixed with warmup</p>
+<p><strong>Strategy Call 2 + Sales Call 1</strong> (this week):<br />
+- Review: first client experience, what did you learn about delivery?<br />
+- Sales Call: review any discovery call recordings. What went well? What to improve?</p>
+<hr />
+<h2>PHASE 2: MOMENTUM (Weeks 5-8) — "Get Paid"</h2>
+<h3>Week 5 — Testimonials + Referral Chain</h3>
+<p><strong>The most important week of the program.</strong> This is where free work turns into a business.</p>
+<p><strong>Collect testimonials:</strong><br />
+- Video is best. Written is fine.<br />
+- Ask: "Would you mind sharing a quick testimonial about the work we did together? It would mean a lot."</p>
+<p><strong>Ask for referrals:</strong><br />
+- This was part of the deal from the start — testimonial + 2 referrals.<br />
+- "Do you know two other people who might benefit from something similar?"</p>
+<p><strong>Why referrals are your best lead source:</strong><br />
+- When you reach out to a referral, you're not a stranger. You're "the person [their friend] recommended."<br />
+- Referred leads convert at 69-71% higher rates than cold leads.<br />
+- 91% of people say they'd give referrals — but only 11% of people ask. Just ask.</p>
+<p><strong>Create professional documentation for delivered projects:</strong><br />
+- Record a Loom walkthrough of the automation (make it generic so the client's team can use it)<br />
+- Turn the Loom transcript into a written SOP using AI<br />
+- Send both to the client in a delivery email (use the Delivery Framework Template)</p>
+<p><strong>Cold email:</strong> Volume increasing to 30-50% of daily capacity.</p>
+<p><strong>Milestone 3 checkpoint:</strong> Testimonial received + referral introductions made.</p>
+<hr />
+<h3>Week 6 — First Paid Client</h3>
+<p><strong>You now have testimonials and referrals. Time to charge.</strong></p>
+<p><strong>Start pricing conversations:</strong><br />
+- With referred leads: they already trust you through their connection<br />
+- With any remaining warm leads<br />
+- $1,500-2,500 per project is reasonable for a beginner</p>
+<p><strong>When you close your first paid client:</strong><br />
+- Run a professional onboarding call (use the Client Onboarding Checklist):<br />
+  - Set timeline expectations (underpromise by 1-2 weeks)<br />
+  - Set availability expectations (when will you respond?)<br />
+  - Choose ONE communication channel (WhatsApp or Slack)<br />
+  - Get ALL software access on the call (don't leave without it)</p>
+<p><strong>Niche starts emerging:</strong><br />
+- Which industries responded to your outreach?<br />
+- Which problems did you enjoy solving?<br />
+- Which clients were easiest to work with?<br />
+- Don't force it — just notice the patterns<br />
+- Use Upwork to research demand: search for the types of projects you've been doing. Are people hiring for this?</p>
+<p><strong>Strategy Call 3:</strong> Review what's working in outreach, discuss the niche direction that's emerging.</p>
+<p><strong>Milestone 4 checkpoint:</strong> Invoice paid. Screenshot it.</p>
+<hr />
+<h3>Week 7 — Deliver Paid + Scale Outreach</h3>
+<p><strong>Deliver your paid project with the full professional framework:</strong><br />
+- Weekly progress updates (every week without exception)<br />
+- Underpromise, overdeliver on timeline<br />
+- Test thoroughly before handoff</p>
+<p><strong>Scale outreach:</strong><br />
+- Cold email at 50-70% capacity<br />
+- Continue warm outreach to remaining contacts<br />
+- Follow up with ALL open conversations — the fortune is in the follow-up<br />
+- Start refining your messaging based on what's resonating (are certain industries responding more?)</p>
+<hr />
+<h3>Week 8 — Upsell + Second Paid Client</h3>
+<p><strong>Complete paid delivery with professional documentation.</strong></p>
+<p><strong>The PS upsell technique (from your delivery email):</strong></p>
+<blockquote>
+<p>PS — I noticed while working on this project that there are probably other areas in your business where AI could help. I'd love to offer you a free business audit where we can map out other processes and identify opportunities. No obligation — just want to make sure you're getting the most value possible. Let me know if you'd like to hop on a quick call.</p>
+</blockquote>
+<p><strong>Why this works:</strong> You've already built trust. They've seen you deliver. Planting this seed turns one project into multiple.</p>
+<p><strong>Close second paid client</strong> from referrals, warm outreach, or cold email.</p>
+<p><strong>Cold email:</strong> Approaching full deployment.</p>
+<p><strong>Strategy Call 4 + Sales Call 2:</strong> Review sales recordings, pricing confidence, delivery quality.</p>
+<hr />
+<h2>PHASE 3: SCALE (Weeks 9-12) — "Build the System"</h2>
+<h3>Week 9 — Systemize What Works</h3>
+<p><strong>Create reusable templates for everything you've been doing:</strong><br />
+- Onboarding call agenda (so you don't forget anything)<br />
+- Weekly update message template<br />
+- Delivery email template<br />
+- Documentation template (Loom + written SOP)</p>
+<p><strong>Build SOPs for your most common automation builds.</strong> If you've built the same type of automation twice, document how you did it.</p>
+<p><strong>Cold email:</strong> Full deployment (80%+ of daily send volume is cold outreach).</p>
+<p><strong>Ask yourself the "More/Better/New" question:</strong><br />
+- <strong>More:</strong> Am I doing enough volume? (If not, send more messages)<br />
+- <strong>Better:</strong> Is my messaging good enough? (If not, refine the copy)<br />
+- <strong>New:</strong> Do I need a new channel? (Only if the first two are maxed)</p>
+<p><strong>Milestone 5 checkpoint:</strong> SOP document created + Instantly dashboard showing active campaigns.</p>
+<hr />
+<h3>Week 10 — Increase Deal Size</h3>
+<p><strong>Pitch retainers to existing clients:</strong><br />
+- Formula: 20% of the implementation fee as a monthly maintenance retainer<br />
+- Example: $2,500 project → $500/month retainer<br />
+- "This is to maintain the system, provide support, and make sure everything runs smoothly long-term."</p>
+<p><strong>Upsell existing clients:</strong><br />
+- Offer free business audits to delivered clients<br />
+- "I noticed [specific area] where AI could help. Want me to take a look?"<br />
+- Solve more problems for the same client = higher lifetime value per client</p>
+<p><strong>The niche should be clearer now.</strong> Double down on the industry or problem type that's working.</p>
+<p><strong>Strategy Call 5:</strong> Revenue review, what needs to change to increase momentum.</p>
+<hr />
+<h3>Week 11 — Optimize</h3>
+<p><strong>Double down on what's working:</strong><br />
+- Which outreach channel is generating the most conversations?<br />
+- Which type of client is easiest to close?<br />
+- Which offer gets the best response?</p>
+<p><strong>Stop doing what isn't working.</strong> Cut it.</p>
+<p><strong>A/B test cold email copy</strong> if response rates are below average benchmarks (below 3% reply rate).</p>
+<p><strong>Push for referrals from every satisfied client.</strong> Every single one. Just ask.</p>
+<hr />
+<h3>Week 12 — 90-Day Review + Graduation</h3>
+<p><strong>Full retrospective:</strong><br />
+- What worked? What didn't?<br />
+- What were your key learnings?<br />
+- What would you do differently if starting over?</p>
+<p><strong>Set up systems for Month 4+:</strong><br />
+- What does your outreach system look like without coaching?<br />
+- What's your delivery process?<br />
+- What's your pricing structure?</p>
+<p><strong>Define the scaling plan:</strong><br />
+- Which niche are you doubling down on?<br />
+- What's your target deal size?<br />
+- What channels will you use?<br />
+- What does the next 90 days look like?</p>
+<p><strong>Strategy Call 6 + Sales Call 3:</strong> Final review, advanced techniques, graduation.</p>
+<p><strong>Milestone 6 checkpoint:</strong> 90-day retrospective document completed. You have a clear, repeatable process.</p>
+<hr />
+<h2>Reference Benchmarks</h2>
+<p>Use these to check if your inputs are producing normal results. These are industry averages — not targets, just "am I in the right ballpark?"</p>
+<h3>Warm Outreach</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Average</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Response rate (people you know)</td>
+<td>18-25%</td>
+</tr>
+<tr>
+<td>Referral conversion vs cold</td>
+<td>69-71% higher</td>
+</tr>
+<tr>
+<td>Clients who give referrals when asked</td>
+<td>20-30%</td>
+</tr>
+</tbody>
+</table>
+<h3>Cold Email</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Average</th>
+<th>Good</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open rate</td>
+<td>27-44%</td>
+<td>40-60%</td>
+</tr>
+<tr>
+<td>Reply rate (all replies)</td>
+<td>3-4%</td>
+<td>5-10%</td>
+</tr>
+<tr>
+<td>Positive reply rate</td>
+<td>1.7-2%</td>
+<td>3-5%</td>
+</tr>
+<tr>
+<td>Meeting booking rate</td>
+<td>0.5-2%</td>
+<td>2%+</td>
+</tr>
+</tbody>
+</table>
+<h3>LinkedIn DMs</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Average</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection acceptance rate</td>
+<td>25-30%</td>
+</tr>
+<tr>
+<td>Cold DM response rate</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>First-degree DM response</td>
+<td>17%</td>
+</tr>
+</tbody>
+</table>
+<h3>Discovery Calls</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Average</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Close rate (beginner)</td>
+<td>10-15%</td>
+</tr>
+<tr>
+<td>Close rate (experienced)</td>
+<td>20-30%</td>
+</tr>
+<tr>
+<td>Ideal call length</td>
+<td>30-40 min</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Documents You'll Use During the Program</h2>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>When You Use It</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KPI / Accountability Tracker</td>
+<td>Every day — track your inputs</td>
+</tr>
+<tr>
+<td>Warm Outreach Templates</td>
+<td>Weeks 1-4 — your daily messages</td>
+</tr>
+<tr>
+<td>Offer Crafting Worksheet</td>
+<td>Week 0 audit call</td>
+</tr>
+<tr>
+<td>Discovery Call Script</td>
+<td>When you book your first calls</td>
+</tr>
+<tr>
+<td>Sales Call Framework</td>
+<td>When you start pricing conversations</td>
+</tr>
+<tr>
+<td>Cold Outreach Setup Guide</td>
+<td>Week 0 (domain setup) + Week 4 (start sending)</td>
+</tr>
+<tr>
+<td>Pricing Guide</td>
+<td>When you transition from free to paid</td>
+</tr>
+<tr>
+<td>Client Onboarding Checklist</td>
+<td>When you sign your first paid client</td>
+</tr>
+<tr>
+<td>Delivery Framework Template</td>
+<td>Every time you deliver a project</td>
+</tr>
+<tr>
+<td>Niche Discovery Worksheet</td>
+<td>Weeks 4-8 as patterns emerge</td>
+</tr>
+<tr>
+<td>Weekly Reflection Worksheet</td>
+<td>Every Sunday — reflect and plan next week</td>
+</tr>
+</tbody>
+</table>
+    <div class="footer">
+        AI Agency Coaching Program &mdash; Confidential
+    </div>
+</body>
+</html>

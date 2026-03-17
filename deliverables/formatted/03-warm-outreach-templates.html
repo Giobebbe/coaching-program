@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warm Outreach Templates</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent-light: #fef0f2;
+    --bg: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e5e7eb;
+    --bg-alt: #f9fafb;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+.back-nav { background: var(--bg-alt); padding: 10px 24px; }
+.back-nav a { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; }
+.back-nav a:hover { text-decoration: underline; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+    size: A4;
+    margin: 2cm 2.5cm;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: var(--bg);
+    font-size: 15px;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--accent);
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 14px;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ── Lists ───────────────────────────────────────────── */
+ul, ol {
+    margin-bottom: 14px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+li > ul, li > ol {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* ── Blockquotes (message templates) ─────────────────── */
+blockquote {
+    background: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text);
+}
+
+blockquote p {
+    margin-bottom: 8px;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+thead {
+    background: var(--primary);
+    color: white;
+}
+
+th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--bg-alt);
+}
+
+tbody tr:hover {
+    background: var(--accent-light);
+}
+
+/* ── Code / Pre ──────────────────────────────────────── */
+code {
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+pre {
+    background: var(--primary);
+    color: #e0e0e0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-size: 13px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+/* ── Horizontal Rules ────────────────────────────────── */
+hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 32px 0;
+}
+
+/* ── Checkboxes (rendered as list items) ─────────────── */
+li input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--accent);
+}
+
+/* ── Strong / Bold ───────────────────────────────────── */
+strong {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ── Fill-in blanks ──────────────────────────────────── */
+.blank-line {
+    display: inline-block;
+    min-width: 300px;
+    border-bottom: 1px solid var(--border);
+    margin: 4px 0;
+}
+
+/* ── Header bar (top of page) ────────────────────────── */
+.header-bar {
+    background: var(--primary);
+    color: white;
+    padding: 24px 32px;
+    margin: -40px -24px 32px;
+    border-radius: 0 0 12px 12px;
+}
+
+.header-bar h1 {
+    color: white;
+    border-bottom: none;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.header-bar .subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* ── Print styles ────────────────────────────────────── */
+@media print {
+    body {
+        padding: 0;
+        font-size: 12px;
+        max-width: none;
+    }
+    .header-bar {
+        margin: 0 0 24px;
+        border-radius: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    thead {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    tbody tr:nth-child(even) {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .no-print { display: none; }
+}
+</style>
+</head>
+<body>
+    <nav class="back-nav"><a href="../../index.html">← Back to All Deliverables</a></nav>
+    <div class="header-bar">
+        <h1>Warm Outreach Templates</h1>
+        <div class="subtitle">AI Agency Coaching Program</div>
+    </div>
+    <h1>Warm Outreach Templates</h1>
+<p>These are the exact scripts you'll use to land your first clients. No cold calling, no ads, no content creation. Just direct messages to people who already know you.</p>
+<hr />
+<h2>How to Use These Templates</h2>
+<ul>
+<li><strong>Warm outreach</strong> = reaching out to people who already know you (friends, family, acquaintances, old colleagues, classmates, anyone in your phone or social media)</li>
+<li><strong>Why warm first</strong>: trust is already built. They'll actually read your message instead of ignoring it like a cold DM from a stranger</li>
+<li><strong>You're NOT selling them anything</strong> — you're asking if they KNOW someone. This is critical. You're not pitching them. You're asking for a referral. This removes all pressure from the conversation</li>
+<li><strong>Goal: 30 messages per day.</strong> Not 5. Not 10. Thirty. This is a numbers game and the math only works if you put in volume</li>
+</ul>
+<hr />
+<h2>Building Your Contact List</h2>
+<p>Before you send a single message, build your list.</p>
+<p><strong>Where to find contacts:</strong><br />
+- Scroll through your entire phone contact list<br />
+- Go through your LinkedIn connections<br />
+- Go through your Instagram followers and following<br />
+- Check your email contacts<br />
+- Think about old coworkers, classmates, neighbors, gym buddies, anyone</p>
+<p><strong>Write down EVERYONE.</strong> Not 50 people. Everyone. Most people know 200-500+ people when they actually sit down and think about it. You're not deciding who to message yet — you're building the full list first.</p>
+<p><strong>Then prioritize:</strong><br />
+1. <strong>Business owners</strong> — they're the ones who'd actually use your services<br />
+2. <strong>People who know business owners</strong> — they can refer you<br />
+3. <strong>Everyone else</strong> — you never know who someone knows</p>
+<hr />
+<h2>Template 1: General AI Automation Message</h2>
+<p>This is your bread and butter. Use this for 90% of your outreach until you pick a niche.</p>
+<blockquote>
+<p>"Hey [name], hope you're doing well. Just wanted to send you a quick message because I recently launched my AI agency that helps businesses to automate their processes using AI. Right now, I'm looking to work with five new businesses to build case studies and testimonials before the end of the month. Do you happen to know anybody who might be interested? Totally cool if not, just thought I'd ask. Let me know."</p>
+</blockquote>
+<p><strong>Why this works:</strong></p>
+<ul>
+<li><strong>"Do you happen to know anybody"</strong> — This is a soft ask, not a pitch. You're not saying "do YOU want this." You're asking if they know someone. This takes all the pressure off. And ironically, if they ARE interested themselves, they'll say so</li>
+<li><strong>"Five new businesses"</strong> — Creates urgency and scarcity. You're not looking for unlimited clients. You have a specific, limited number of spots</li>
+<li><strong>"Case studies and testimonials"</strong> — Frames it as mutual benefit. You're not begging for work. You're building something, and you need partners to do it. This makes it feel collaborative, not desperate</li>
+<li><strong>"Totally cool if not"</strong> — Releases pressure. They don't owe you anything. This makes people MORE likely to help, not less</li>
+</ul>
+<hr />
+<h2>Template 2: Specific Niche Message</h2>
+<p>Use this once you start niching down. Not on day one.</p>
+<blockquote>
+<p>"Hey [name], hope you're doing well. Just wanted to send you this quick message because I recently launched my AI agency that helps [specific type of business, e.g., home service businesses like HVAC, landscaping, and real estate agencies] who are [specific problem, e.g., getting a high volume of inbound calls] and we're helping them to [specific outcome, e.g., never miss a call ever again using our AI inbound receptionist that answers calls 24/7]. Right now, I'm looking to work with five new businesses to build case studies and testimonials before the end of the month. Do you happen to know anybody who might be interested? Totally cool if not, just thought I'd ask. Let me know."</p>
+</blockquote>
+<p><strong>Note:</strong> You probably won't use this until Week 4-6+ when a niche starts emerging from the conversations you're having. Until then, stick with Template 1. Don't overthink the niche — let it find you through the outreach process.</p>
+<hr />
+<h2>Template 3: The 2-Day Follow-Up</h2>
+<p>Send this exactly 2 days after the initial message if they didn't respond.</p>
+<blockquote>
+<p>"Hey [name], just wanted to check in and see if you had a chance to think of someone who might be a good fit. Let me know if you thought of someone. If not, no worries."</p>
+</blockquote>
+<p><strong>Notes:</strong><br />
+- Short, low-pressure, respectful<br />
+- Most people aren't ignoring you — they're just busy. A follow-up is normal and expected<br />
+- Don't send a third follow-up. Two touches is enough. Move on</p>
+<hr />
+<h2>Template 4: When Someone Says "I Might Know Someone"</h2>
+<p>This is the moment you've been working toward. Don't fumble it.</p>
+<p><strong>Your response:</strong></p>
+<blockquote>
+<p>"That would be amazing, [name]! If you could connect us, I'd really appreciate it. Happy for you to share my number/profile, or if it's easier, I can send you a quick message you can forward to them."</p>
+</blockquote>
+<p><strong>Then send them this forwardable message they can copy-paste:</strong></p>
+<blockquote>
+<p>"Hey [contact name], my friend [your name] just launched an AI agency that helps businesses automate their processes. He/she is looking for a few businesses to work with and I thought of you. Would you be open to a quick chat with them? No pressure at all."</p>
+</blockquote>
+<p>Make it as easy as possible for them. The less work they have to do, the more likely they'll actually follow through.</p>
+<hr />
+<h2>Template 5: Free Client Pitch</h2>
+<p>When you're actually talking to the business owner (either through a referral or because they responded to your outreach themselves), this is how you close them as a free client:</p>
+<blockquote>
+<p>"I'm building out my portfolio right now, so I'd love to do this for free in exchange for a testimonial and two referrals if you're happy with the work."</p>
+</blockquote>
+<p><strong>Why this works:</strong><br />
+- <strong>No risk for them apart from time</strong> — there's literally nothing to lose<br />
+- <strong>You're setting expectations upfront</strong> about what you want in return (testimonial + 2 referrals). This isn't charity. It's a trade<br />
+- <strong>Most clients will say yes</strong> because the offer is so good it'd be irrational to say no<br />
+- <strong>The two referrals are your growth engine</strong> — each free client should produce two more leads, which keeps the pipeline moving</p>
+<hr />
+<h2>Template 6: Referral Request (After Delivering the Free Project)</h2>
+<p>Once the project is done and they're happy with the results:</p>
+<blockquote>
+<p>"Hey [client name], I'm really glad the [project/automation] is working well for you. As we discussed at the start, I'd love to ask — do you know two other people who might benefit from something similar? A quick intro would mean the world to me."</p>
+</blockquote>
+<p><strong>Notes:</strong><br />
+- You already set the expectation at the start (Template 5), so this isn't a surprise<br />
+- Ask when the results are fresh and they're excited about the project<br />
+- "Two other people" is specific. Don't say "anyone" — give them a number</p>
+<hr />
+<h2>Template 7: Reaching Out to a Referral</h2>
+<p>When someone gives you a warm introduction or a name:</p>
+<blockquote>
+<p>"Hey [referral name], [mutual connection] mentioned you might be interested in what I do. I help businesses automate their processes using AI — things like [brief example relevant to their business if you know it]. I'd love to have a quick chat to see if there's anything I could help with. No pressure at all — just happy to connect."</p>
+</blockquote>
+<p><strong>Notes:</strong><br />
+- Always lead with the mutual connection's name. That's your trust shortcut<br />
+- If you know anything about their business, mention a specific use case<br />
+- Keep it casual. This is still an intro, not a sales pitch</p>
+<hr />
+<h2>Channel-Specific Notes</h2>
+<p>The templates above work across all platforms. Adjust the tone slightly:</p>
+<ul>
+<li><strong>WhatsApp / SMS</strong>: Keep it short and conversational. Use their first name. No formalities. These are the most personal channels — write like you're texting a friend</li>
+<li><strong>LinkedIn DM</strong>: Can be slightly more professional. Reference their profile or business if relevant ("I saw you're running [company name]..."). Don't use InMail — it feels like spam</li>
+<li><strong>Instagram DM</strong>: Keep it very casual. Consider referencing a story or post of theirs first before dropping the message ("Saw your story about the new office — congrats! By the way...")</li>
+<li><strong>Email</strong>: Subject line matters. Use "Quick question" or "Thought of you" — not "AI Automation Services." Keep the body identical to the templates</li>
+</ul>
+<hr />
+<h2>Common Objections and How to Handle Them</h2>
+<p><strong>"I don't know anyone"</strong></p>
+<blockquote>
+<p>"No worries at all! If anyone comes to mind later, feel free to reach out."</p>
+</blockquote>
+<p>Don't push. Move on. They might actually come back to you weeks later.</p>
+<p><strong>"What exactly do you do?"</strong></p>
+<blockquote>
+<p>"I help businesses save time by automating repetitive processes with AI — things like lead follow-up, data entry, customer support."</p>
+</blockquote>
+<p>Keep it outcome-focused. Don't get into technical explanations about APIs and workflows. They don't care how it works. They care what it does.</p>
+<p><strong>"How much does it cost?"</strong></p>
+<blockquote>
+<p>"It depends on the project, but right now I'm actually looking for a few businesses to work with for free to build my portfolio. So if you know anyone, there's no cost for them."</p>
+</blockquote>
+<p>This flips the cost objection entirely. There is no cost. Now there's no reason NOT to refer someone.</p>
+<hr />
+<h2>Mindset</h2>
+<p>Read this before you start sending messages. Read it again when you feel resistance.</p>
+<p><strong>"Nobody cares. People are focused on their own lives. They're not sitting around judging you for starting a business."</strong></p>
+<p>That fear you have about people thinking you're weird for reaching out? It doesn't exist. Nobody is thinking about you that much. They'll read it, respond or not, and go back to their day.</p>
+<p><strong>"You will have people who look at the message and ignore it, people who say no, and people who actually help you. That's it."</strong></p>
+<p>There are only three outcomes. None of them are catastrophic. The people who ignore you weren't going to help anyway. The people who say no are being honest. The people who help you are all you need. You only need a few.</p>
+<p><strong>"Focus on the input, not the output. The input is the DMs you have to send. The output is getting that first client. Output is something you cannot directly control. Input is something you can directly control."</strong></p>
+<p>Stop worrying about whether you'll get a client today. That's not in your control. What IS in your control: did you send 30 messages today? Yes or no. That's the only metric that matters right now. Hit the input target every single day. The output will follow.</p>
+<hr />
+<h2>Your Action Plan for Today</h2>
+<ol>
+<li>Build your full contact list (minimum 1 hour — write down every name)</li>
+<li>Prioritize the list (business owners first)</li>
+<li>Copy Template 1</li>
+<li>Send 30 messages</li>
+<li>Track who you messaged and when (so you can follow up in 2 days)</li>
+<li>Repeat tomorrow</li>
+</ol>
+    <div class="footer">
+        AI Agency Coaching Program &mdash; Confidential
+    </div>
+</body>
+</html>

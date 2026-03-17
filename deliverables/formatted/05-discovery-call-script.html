@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discovery Call Script</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent-light: #fef0f2;
+    --bg: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e5e7eb;
+    --bg-alt: #f9fafb;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+.back-nav { background: var(--bg-alt); padding: 10px 24px; }
+.back-nav a { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; }
+.back-nav a:hover { text-decoration: underline; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+    size: A4;
+    margin: 2cm 2.5cm;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: var(--bg);
+    font-size: 15px;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--accent);
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 14px;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ── Lists ───────────────────────────────────────────── */
+ul, ol {
+    margin-bottom: 14px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+li > ul, li > ol {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* ── Blockquotes (message templates) ─────────────────── */
+blockquote {
+    background: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text);
+}
+
+blockquote p {
+    margin-bottom: 8px;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+thead {
+    background: var(--primary);
+    color: white;
+}
+
+th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--bg-alt);
+}
+
+tbody tr:hover {
+    background: var(--accent-light);
+}
+
+/* ── Code / Pre ──────────────────────────────────────── */
+code {
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+pre {
+    background: var(--primary);
+    color: #e0e0e0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-size: 13px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+/* ── Horizontal Rules ────────────────────────────────── */
+hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 32px 0;
+}
+
+/* ── Checkboxes (rendered as list items) ─────────────── */
+li input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--accent);
+}
+
+/* ── Strong / Bold ───────────────────────────────────── */
+strong {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ── Fill-in blanks ──────────────────────────────────── */
+.blank-line {
+    display: inline-block;
+    min-width: 300px;
+    border-bottom: 1px solid var(--border);
+    margin: 4px 0;
+}
+
+/* ── Header bar (top of page) ────────────────────────── */
+.header-bar {
+    background: var(--primary);
+    color: white;
+    padding: 24px 32px;
+    margin: -40px -24px 32px;
+    border-radius: 0 0 12px 12px;
+}
+
+.header-bar h1 {
+    color: white;
+    border-bottom: none;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.header-bar .subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* ── Print styles ────────────────────────────────────── */
+@media print {
+    body {
+        padding: 0;
+        font-size: 12px;
+        max-width: none;
+    }
+    .header-bar {
+        margin: 0 0 24px;
+        border-radius: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    thead {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    tbody tr:nth-child(even) {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .no-print { display: none; }
+}
+</style>
+</head>
+<body>
+    <nav class="back-nav"><a href="../../index.html">← Back to All Deliverables</a></nav>
+    <div class="header-bar">
+        <h1>Discovery Call Script</h1>
+        <div class="subtitle">AI Agency Coaching Program</div>
+    </div>
+    <h1>Discovery Call Script</h1>
+<p>Your only job on this call is to <strong>listen</strong>. The client will tell you exactly what they need. Don't pitch. Don't sell. Understand their problems deeply, and the sale happens naturally.</p>
+<hr />
+<h2>Before the Call — Preparation Checklist</h2>
+<ul>
+<li><input type="checkbox" disabled> Research the business (website, social media, Google reviews, what they sell)</li>
+<li><input type="checkbox" disabled> Prepare 3 specific questions based on what you found (e.g., "I noticed you offer X — how do you currently handle Y?")</li>
+<li><input type="checkbox" disabled> Have a notepad ready (physical or digital) to write down their problems in their exact words</li>
+<li><input type="checkbox" disabled> Test your video, audio, and screen share</li>
+<li><input type="checkbox" disabled> Remember: you are NOT selling on this call. You are listening and understanding.</li>
+</ul>
+<hr />
+<h2>Opening (2-3 minutes)</h2>
+<p><strong>Build rapport first.</strong> Be a human, not a pitch machine.</p>
+<blockquote>
+<p>"Hey [name], thanks for taking the time. [Mutual connection / how you found them] spoke really highly of you."</p>
+</blockquote>
+<p>Or if they came to you:</p>
+<blockquote>
+<p>"Hey [name], appreciate you hopping on. I was looking at your [website/Instagram/business] before the call — really cool what you're doing with [something specific]."</p>
+</blockquote>
+<p><strong>Set the agenda.</strong> This removes pressure from both sides.</p>
+<blockquote>
+<p>"I'd love to spend about 30 minutes just understanding your business and seeing if there's anything I could help with. No pressure at all — if it's a fit, great. If not, totally fine. Sound good?"</p>
+</blockquote>
+<p><strong>Why this works:</strong> You're positioning yourself as a consultant trying to understand their situation, not a salesperson trying to close a deal. People open up when they don't feel sold to.</p>
+<hr />
+<h2>Understanding Their Business (10-15 minutes)</h2>
+<p>This is the most important part of the call. You're a detective looking for problems you can solve.</p>
+<h3>Core Questions</h3>
+<p>Start broad, then go deeper.</p>
+<ol>
+<li>
+<p><strong>"What does your day-to-day look like?"</strong><br />
+   — Gets them talking. You'll hear where the bottlenecks are.</p>
+</li>
+<li>
+<p><strong>"What tasks take up the most time?"</strong><br />
+   — Reveals repetitive work that screams automation.</p>
+</li>
+<li>
+<p><strong>"If your business doubled tomorrow, what would break first?"</strong><br />
+   — This is a killer question. It forces them to think about their weakest link.</p>
+</li>
+</ol>
+<h3>Probing Questions</h3>
+<p>Use these to dig into specific areas based on what they say.</p>
+<ol start="4">
+<li>"How are you currently handling [specific process you noticed]?"</li>
+<li>"What's your biggest frustration right now when it comes to [area they mentioned]?"</li>
+<li>"Are there any tasks your team does repeatedly that feel like they should be automated?"</li>
+<li>"How do you currently follow up with leads or customers?"</li>
+<li>"What happens when you miss a lead or a customer inquiry slips through the cracks?"</li>
+</ol>
+<h3>After Each Answer, Go Deeper</h3>
+<p>Don't rush to the next question. Sit in the silence. Then use these follow-ups:</p>
+<ul>
+<li>"Tell me more about that..."</li>
+<li>"How often does that happen?"</li>
+<li>"What does that cost you — in terms of time, money, or missed opportunities?"</li>
+<li>"What have you tried so far to fix that?"</li>
+<li>"And how did that work out?"</li>
+</ul>
+<p><strong>IMPORTANT: Listen. Take notes. Don't jump to solutions.</strong> Write down their exact words. You'll use their language later when presenting your solution — it makes them feel heard.</p>
+<hr />
+<h2>Identifying the Pain (5 minutes)</h2>
+<p>Now you reflect back what you heard. This does two things: it shows you were listening, and it helps <em>them</em> realize how serious their problems are.</p>
+<p><strong>Summarize what you heard:</strong></p>
+<blockquote>
+<p>"So if I'm understanding correctly, the main challenges are [X], [Y], and [Z]. Is that right?"</p>
+</blockquote>
+<p>Let them confirm or correct you. They'll often add more detail here.</p>
+<p><strong>Ask the impact question:</strong></p>
+<blockquote>
+<p>"What is this actually costing you? Whether it's time, money, or opportunities you're missing out on?"</p>
+</blockquote>
+<p>Let them answer. Sometimes they'll do the math out loud. Sometimes they'll say "I don't even want to think about it." Either way, they're now feeling the weight of the problem — and that makes them want a solution.</p>
+<hr />
+<h2>Presenting Your Solution (5 minutes)</h2>
+<p><strong>KEY RULE: Talk about the OUTCOME, not the tool.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Don't Say</th>
+<th>Do Say</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"I'll build you an n8n automation with a webhook that triggers a GPT-4 response..."</td>
+<td>"I can help you respond to every lead within 5 minutes, automatically, so you never lose a deal to a slower competitor again."</td>
+</tr>
+<tr>
+<td>"I'll set up a Make.com scenario with a CRM integration..."</td>
+<td>"Every new customer inquiry will get an instant, personalized response — even at 2am when you're asleep."</td>
+</tr>
+<tr>
+<td>"I'll use AI to process your data..."</td>
+<td>"You'll get a daily summary of everything that matters in your business, without spending an hour pulling reports."</td>
+</tr>
+</tbody>
+</table>
+<h3>The Framework</h3>
+<blockquote>
+<p>"Based on what you've shared, here's what I'd recommend..."</p>
+</blockquote>
+<ol>
+<li><strong>Describe the outcome.</strong> Paint a picture of what their business looks like AFTER the solution is in place.</li>
+<li><strong>Connect it to their pain.</strong> Reference the specific problems they told you about, using their words.</li>
+<li><strong>Keep it simple.</strong> One clear solution to their biggest problem. Don't overwhelm them with three different automations.</li>
+</ol>
+<blockquote>
+<p>"So instead of [their current painful process], imagine [the improved version]. That's what I'd set up for you."</p>
+</blockquote>
+<hr />
+<h2>The Close (5 minutes)</h2>
+<p>You're not closing a deal here. You're agreeing on a next step.</p>
+<h3>If they're interested:</h3>
+<blockquote>
+<p>"Would it make sense for me to put together a quick proposal outlining exactly what this would look like and what it would cost?"</p>
+<p>"I can have something over to you by [2-3 days from now]. Does that work?"</p>
+</blockquote>
+<h3>If they need to think about it:</h3>
+<blockquote>
+<p>"Totally understand. Why don't I send you a quick summary of what we discussed, and you can take a look when you have time?"</p>
+</blockquote>
+<p>Set a specific follow-up:</p>
+<blockquote>
+<p>"Would it be okay if I checked back in on [specific day]? Just so it doesn't fall off both our radars."</p>
+</blockquote>
+<h3>If it's a free client (your first 3 projects):</h3>
+<blockquote>
+<p>"I'm building out my portfolio right now, so I'd love to do this for you at no cost — in exchange for a testimonial and a couple of referrals if you're happy with the work. There's zero risk on your side apart from the time to walk me through your systems."</p>
+</blockquote>
+<p>This is your strongest close early on. No risk for them. Real results for both of you.</p>
+<hr />
+<h2>After the Call</h2>
+<p>Do these within one hour while it's fresh:</p>
+<ul>
+<li><input type="checkbox" disabled> Send a thank-you message (text, email, or voice note — keep it brief and genuine)</li>
+<li><input type="checkbox" disabled> Write down the 3 main problems they mentioned, in their exact words</li>
+<li><input type="checkbox" disabled> Draft a proposal or summary (keep it to 1 page max — see the proposal template)</li>
+<li><input type="checkbox" disabled> Set a follow-up reminder for the exact date you agreed on</li>
+<li><input type="checkbox" disabled> Record notes in your KPI tracker (call happened, outcome, next step)</li>
+<li><input type="checkbox" disabled> If you don't know how to build the solution yet — start researching now (this is normal)</li>
+</ul>
+<hr />
+<h2>Common Objections and How to Handle Them</h2>
+<p>These will come up. Don't panic. Stay calm, stay curious, stay human.</p>
+<h3>1. "I need to think about it."</h3>
+<blockquote>
+<p>"Totally understand. Out of curiosity — what specific concerns do you have? Sometimes I can help clarify things right now."</p>
+</blockquote>
+<p>If they still need time, that's fine. Set a follow-up date and send the summary.</p>
+<h3>2. "It's too expensive."</h3>
+<blockquote>
+<p>"I hear you. Let me ask — what would it be worth to you if [specific outcome] was happening automatically every day? If the ROI makes sense, the investment pays for itself pretty quickly."</p>
+</blockquote>
+<p>If they still can't afford it, consider a smaller scope or a payment plan.</p>
+<h3>3. "I already have someone doing this."</h3>
+<blockquote>
+<p>"That's great! Out of curiosity, are they using AI specifically for this? A lot of businesses are finding that AI can do in minutes what used to take hours. I'm happy to show you the difference — no obligation."</p>
+</blockquote>
+<h3>4. "I don't understand AI."</h3>
+<blockquote>
+<p>"You don't need to — that's my job. All you need to know is the result. In your case, that means [describe the outcome in their language]. I handle all the technical stuff."</p>
+</blockquote>
+<h3>5. "Can you guarantee results?"</h3>
+<blockquote>
+<p>"I can't guarantee a specific number — anyone who does is lying to you. But I can show you exactly what the system does and how it works before we go live. We test everything thoroughly, and you'll see it working before you pay."</p>
+</blockquote>
+<h3>6. "I need to talk to my partner/team."</h3>
+<blockquote>
+<p>"Of course. Would it help if I put together a one-page summary you can share with them? And if it would be useful, I'm happy to hop on a quick call with everyone so I can answer their questions directly."</p>
+</blockquote>
+<hr />
+<h2>Key Reminders — Read These Before Every Call</h2>
+<ul>
+<li><strong>The discovery call is NOT a closing call.</strong> It's a listening call.</li>
+<li><strong>Ask questions. Shut up. Let them talk.</strong> Silence is your friend — they'll fill it.</li>
+<li><strong>Take notes on their exact words.</strong> Use their language when presenting your solution. It makes them feel understood.</li>
+<li><strong>If you don't know how to build what they need, that's okay.</strong> Say: "Let me look into the best way to set this up and I'll get back to you." Then figure it out after the call.</li>
+<li><strong>A good discovery call is 30-40 minutes.</strong> If you're talking more than 30% of the time, you're talking too much.</li>
+<li><strong>Beginner close rate is 10-15%.</strong> Don't be discouraged by "no"s. It's a numbers game. Every call makes you better.</li>
+<li><strong>The worst thing you can do is sound desperate.</strong> You're offering value. If they don't see it, move on to the next one.</li>
+<li><strong>Don't pitch features. Sell the outcome.</strong> Nobody cares about your tech stack. They care about saving time, making money, and not losing customers.</li>
+</ul>
+    <div class="footer">
+        AI Agency Coaching Program &mdash; Confidential
+    </div>
+</body>
+</html>

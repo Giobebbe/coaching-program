@@ -1,0 +1,20 @@
+# Claude Code config
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+
+# Source materials
+*.md
+*.csv
+*.py
+
+# Dev files
+formatting-showcase.html
+
+# OS files
+.DS_Store
+
+# Deliverable source files
+deliverables/*.md
+deliverables/*.csv
+deliverables/*.py

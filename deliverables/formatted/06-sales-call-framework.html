@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Call Framework</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent-light: #fef0f2;
+    --bg: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e5e7eb;
+    --bg-alt: #f9fafb;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+.back-nav { background: var(--bg-alt); padding: 10px 24px; }
+.back-nav a { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; }
+.back-nav a:hover { text-decoration: underline; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+    size: A4;
+    margin: 2cm 2.5cm;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: var(--bg);
+    font-size: 15px;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--accent);
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 14px;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ── Lists ───────────────────────────────────────────── */
+ul, ol {
+    margin-bottom: 14px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+li > ul, li > ol {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* ── Blockquotes (message templates) ─────────────────── */
+blockquote {
+    background: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text);
+}
+
+blockquote p {
+    margin-bottom: 8px;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+thead {
+    background: var(--primary);
+    color: white;
+}
+
+th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--bg-alt);
+}
+
+tbody tr:hover {
+    background: var(--accent-light);
+}
+
+/* ── Code / Pre ──────────────────────────────────────── */
+code {
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+pre {
+    background: var(--primary);
+    color: #e0e0e0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-size: 13px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+/* ── Horizontal Rules ────────────────────────────────── */
+hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 32px 0;
+}
+
+/* ── Checkboxes (rendered as list items) ─────────────── */
+li input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--accent);
+}
+
+/* ── Strong / Bold ───────────────────────────────────── */
+strong {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ── Fill-in blanks ──────────────────────────────────── */
+.blank-line {
+    display: inline-block;
+    min-width: 300px;
+    border-bottom: 1px solid var(--border);
+    margin: 4px 0;
+}
+
+/* ── Header bar (top of page) ────────────────────────── */
+.header-bar {
+    background: var(--primary);
+    color: white;
+    padding: 24px 32px;
+    margin: -40px -24px 32px;
+    border-radius: 0 0 12px 12px;
+}
+
+.header-bar h1 {
+    color: white;
+    border-bottom: none;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.header-bar .subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* ── Print styles ────────────────────────────────────── */
+@media print {
+    body {
+        padding: 0;
+        font-size: 12px;
+        max-width: none;
+    }
+    .header-bar {
+        margin: 0 0 24px;
+        border-radius: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    thead {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    tbody tr:nth-child(even) {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .no-print { display: none; }
+}
+</style>
+</head>
+<body>
+    <nav class="back-nav"><a href="../../index.html">← Back to All Deliverables</a></nav>
+    <div class="header-bar">
+        <h1>Sales Call Framework</h1>
+        <div class="subtitle">AI Agency Coaching Program</div>
+    </div>
+    <h1>Sales Call Framework</h1>
+<p>This document covers what happens AFTER the discovery call — when you know their problem and you're presenting your solution and pricing. If you haven't done the discovery call yet, use the Discovery Call Script first.</p>
+<hr />
+<h2>The Difference Between Discovery and Sales</h2>
+<table>
+<thead>
+<tr>
+<th>Discovery Call</th>
+<th>Sales Call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>You're listening</td>
+<td>You're presenting</td>
+</tr>
+<tr>
+<td>Goal: understand their problem</td>
+<td>Goal: show them how you solve it</td>
+</tr>
+<tr>
+<td>They talk 70%+ of the time</td>
+<td>You talk 50-60% of the time</td>
+</tr>
+<tr>
+<td>No pricing discussion</td>
+<td>Pricing is discussed</td>
+</tr>
+<tr>
+<td>Outcome: "Let me put together a proposal"</td>
+<td>Outcome: "Let's get started"</td>
+</tr>
+</tbody>
+</table>
+<p>Sometimes these happen in the same conversation. Sometimes you do a discovery call first and come back with a proposal a few days later. Both are fine.</p>
+<hr />
+<h2>Before the Sales Conversation</h2>
+<p><strong>Prepare your proposal.</strong> Keep it simple — 1 page max.</p>
+<h3>Proposal Template</h3>
+<p><strong>For: [Client Name / Business Name]</strong><br />
+<strong>Date: [Date]</strong><br />
+<strong>Prepared by: [Your Name]</strong></p>
+<p><strong>The Problem:</strong><br />
+[In their own words — use the exact language they used during discovery]<br />
+Example: "You mentioned that your team spends 3-4 hours per day manually following up with leads, and that you're losing potential customers because responses take too long."</p>
+<p><strong>The Solution:</strong><br />
+[Outcome-focused, not tool-focused]<br />
+Example: "An automated lead follow-up system that responds to every new inquiry within 60 seconds, 24/7 — so your team can focus on closing deals instead of chasing leads."</p>
+<p><strong>What's Included:</strong><br />
+- [Deliverable 1: e.g., Automated lead response system]<br />
+- [Deliverable 2: e.g., Integration with your existing CRM]<br />
+- [Deliverable 3: e.g., Video walkthrough + written documentation]<br />
+- [Deliverable 4: e.g., 2 weeks of testing and optimization]</p>
+<p><strong>Timeline:</strong> [X] weeks</p>
+<p><strong>Investment:</strong> $[amount]</p>
+<p><strong>Payment Terms:</strong> 50% upfront, 50% upon completion<br />
+(or: 100% upfront with a 10% discount)</p>
+<hr />
+<h2>How to Present Pricing</h2>
+<h3>Rule 1: Sell the Outcome First, Then Price</h3>
+<p>Before you say any number, make sure they clearly understand what they're getting. Not the automation — the RESULT.</p>
+<p>"Based on what you shared, here's what this would look like for your business..."<br />
+- "Every lead gets a response within 60 seconds"<br />
+- "Your team saves 3-4 hours per day"<br />
+- "You stop losing deals to competitors who respond faster"</p>
+<p>THEN present the price.</p>
+<h3>Rule 2: Frame Price as ROI</h3>
+<p>Don't just say "$2,500." Frame it:</p>
+<p>"The investment for this is $2,500. Based on what you told me — you're losing roughly [X] leads per month because of slow follow-up. Even if this system captures just 2-3 extra deals per month at your average deal size, you'd make back the investment in the first month."</p>
+<h3>Rule 3: Use Anchoring</h3>
+<p>Before presenting your price, reference what the problem is costing them:</p>
+<p>"You mentioned your team spends 15-20 hours per week on this manually. At $25/hour, that's $2,000-$2,500 per month in labor costs. The one-time investment to automate this is $2,500 — so it pays for itself in the first month and saves you money every month after."</p>
+<h3>Rule 4: Present Payment Options (Not Price Options)</h3>
+<p>Don't give 3 different pricing tiers. Give ONE price with flexible payment terms:</p>
+<ul>
+<li>"The investment is $3,000. We can do 50% upfront and 50% upon completion, or if you'd prefer to pay in full, I can offer a 10% discount."</li>
+</ul>
+<hr />
+<h2>During the Sales Conversation</h2>
+<h3>Step 1: Recap the Problem (2 minutes)</h3>
+<p>"Last time we spoke, you mentioned [problem]. Has anything changed since then?"</p>
+<p>This confirms the problem is still real and reminds them why they're talking to you.</p>
+<h3>Step 2: Present the Solution (5 minutes)</h3>
+<p>Walk through your proposal. Focus on outcomes:<br />
+- "Here's what your business looks like after we set this up..."<br />
+- "Every lead gets a response within [time]"<br />
+- "Your team gets [X hours] back per week"<br />
+- "You have full documentation so your team can manage it"</p>
+<h3>Step 3: Present the Price (2 minutes)</h3>
+<p>Use the ROI framing from above. Be confident. Don't apologize for your price.</p>
+<p>Say the number and stop talking. Let them respond.</p>
+<h3>Step 4: Handle Objections (5-10 minutes)</h3>
+<p><strong>"That's more than I expected"</strong><br />
+→ "I understand. Let me ask — what would it be worth to you to [outcome]? If this saves your team 15 hours per week and captures even 2-3 more deals per month, what's that worth over the next 12 months?"</p>
+<p><strong>"I need to think about it"</strong><br />
+→ "Totally understand. What specifically would you need to think through? I want to make sure I've answered all your questions."</p>
+<p><strong>"Can you do it cheaper?"</strong><br />
+→ "This is the price for the full solution. If budget is a concern, we could start with [smaller scope] at a lower price and add on later. But honestly, doing the full solution gives you the best result."</p>
+<p><strong>"I need to talk to my partner/team"</strong><br />
+→ "Of course. Would it help if I put together a one-page summary you can share? Or would it make sense for all of us to hop on a quick 15-minute call so they can ask questions directly?"</p>
+<p><strong>"What if it doesn't work?"</strong><br />
+→ "We test everything thoroughly before handoff — end-to-end testing, edge cases, multiple runs. I don't hand off anything that doesn't work. And I include 2 weeks of support after delivery to make sure everything runs smoothly."</p>
+<p><strong>"I've been burned before"</strong><br />
+→ "I hear that a lot. Here's what makes this different: [mention your testimonials if you have them]. I also give you weekly progress updates throughout the project so you always know exactly where things stand. And you get full documentation so you're never locked in — you own everything."</p>
+<h3>Step 5: Close</h3>
+<p>If they're ready:<br />
+→ "Great, let me send over the invoice and we can get started this week."</p>
+<p>If they need time:<br />
+→ "No problem. I'll send this proposal over to you today. When would be a good time to reconnect — [specific day]?"</p>
+<p>Always set a specific follow-up date. "I'll follow up next week" is too vague.</p>
+<hr />
+<h2>After the Sales Conversation</h2>
+<p><strong>If they said yes:</strong><br />
+- <input type="checkbox" disabled> Send invoice immediately (same day)<br />
+- <input type="checkbox" disabled> Do NOT start work until payment is received (no payment = no work)<br />
+- <input type="checkbox" disabled> Schedule the onboarding call (see Client Onboarding Checklist)<br />
+- <input type="checkbox" disabled> Send a confirmation message: "Thanks [name]! I'm excited to get started. I'll send over the invoice today and once that's sorted, we'll schedule our onboarding call to kick things off."</p>
+<p><strong>If they said "let me think":</strong><br />
+- <input type="checkbox" disabled> Send the proposal within 24 hours<br />
+- <input type="checkbox" disabled> Set a follow-up reminder for the agreed date<br />
+- <input type="checkbox" disabled> Follow up on that date: "Hey [name], just checking in on the proposal I sent over. Do you have any questions I can help with?"<br />
+- <input type="checkbox" disabled> If no response after 2 follow-ups, one final message: "Hey [name], just wanted to check in one last time. If the timing isn't right, totally understand — the offer stands whenever you're ready."</p>
+<p><strong>If they said no:</strong><br />
+- <input type="checkbox" disabled> Thank them for their time<br />
+- <input type="checkbox" disabled> Ask: "Is there anyone you know who might be dealing with a similar challenge?"<br />
+- <input type="checkbox" disabled> Keep them on your list — they might come back later</p>
+<hr />
+<h2>Retainer Upsell (for Delivered Clients)</h2>
+<p>After you've delivered a project successfully, this is how you pitch ongoing maintenance:</p>
+<p>"Hey [name], now that [project] is live and running, I wanted to mention something. A lot of my clients find it valuable to have ongoing support — making sure the system runs smoothly, optimizing it based on real data, and handling any issues that come up. I offer a monthly maintenance retainer for $[amount]/month, which covers support, updates, and optimization. Would that be useful for you?"</p>
+<p><strong>Retainer pricing formula:</strong> 20% of the implementation fee<br />
+- $2,500 project → $500/month<br />
+- $5,000 project → $1,000/month</p>
+<p><strong>What the retainer includes:</strong><br />
+- System monitoring and maintenance<br />
+- Bug fixes and adjustments<br />
+- Monthly optimization based on performance data<br />
+- Priority support (response within 24 hours)</p>
+<hr />
+<h2>Key Principles</h2>
+<ol>
+<li><strong>Never discount your price to close a deal.</strong> Reduce scope instead. "We could start with [smaller piece] at $[lower amount] and add the rest later."</li>
+<li><strong>The client is buying an outcome, not hours of your time.</strong> Don't price by the hour. Price by the value of the result.</li>
+<li><strong>Confidence sells.</strong> If you seem unsure about your price, they'll feel unsure about paying it.</li>
+<li><strong>No payment, no work. Period.</strong> Get payment confirmed before you start building anything.</li>
+<li><strong>The upsell happens naturally.</strong> Deliver great work → offer a business audit → find more problems → solve them → repeat.</li>
+</ol>
+    <div class="footer">
+        AI Agency Coaching Program &mdash; Confidential
+    </div>
+</body>
+</html>

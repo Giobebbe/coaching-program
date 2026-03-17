@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niche Discovery Worksheet</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent-light: #fef0f2;
+    --bg: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e5e7eb;
+    --bg-alt: #f9fafb;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+.back-nav { background: var(--bg-alt); padding: 10px 24px; }
+.back-nav a { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; }
+.back-nav a:hover { text-decoration: underline; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+    size: A4;
+    margin: 2cm 2.5cm;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: var(--bg);
+    font-size: 15px;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--accent);
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 14px;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ── Lists ───────────────────────────────────────────── */
+ul, ol {
+    margin-bottom: 14px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+li > ul, li > ol {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* ── Blockquotes (message templates) ─────────────────── */
+blockquote {
+    background: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text);
+}
+
+blockquote p {
+    margin-bottom: 8px;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+thead {
+    background: var(--primary);
+    color: white;
+}
+
+th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--bg-alt);
+}
+
+tbody tr:hover {
+    background: var(--accent-light);
+}
+
+/* ── Code / Pre ──────────────────────────────────────── */
+code {
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+pre {
+    background: var(--primary);
+    color: #e0e0e0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-size: 13px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+/* ── Horizontal Rules ────────────────────────────────── */
+hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 32px 0;
+}
+
+/* ── Checkboxes (rendered as list items) ─────────────── */
+li input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--accent);
+}
+
+/* ── Strong / Bold ───────────────────────────────────── */
+strong {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ── Fill-in blanks ──────────────────────────────────── */
+.blank-line {
+    display: inline-block;
+    min-width: 300px;
+    border-bottom: 1px solid var(--border);
+    margin: 4px 0;
+}
+
+/* ── Header bar (top of page) ────────────────────────── */
+.header-bar {
+    background: var(--primary);
+    color: white;
+    padding: 24px 32px;
+    margin: -40px -24px 32px;
+    border-radius: 0 0 12px 12px;
+}
+
+.header-bar h1 {
+    color: white;
+    border-bottom: none;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.header-bar .subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* ── Print styles ────────────────────────────────────── */
+@media print {
+    body {
+        padding: 0;
+        font-size: 12px;
+        max-width: none;
+    }
+    .header-bar {
+        margin: 0 0 24px;
+        border-radius: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    thead {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    tbody tr:nth-child(even) {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .no-print { display: none; }
+}
+</style>
+</head>
+<body>
+    <nav class="back-nav"><a href="../../index.html">← Back to All Deliverables</a></nav>
+    <div class="header-bar">
+        <h1>Niche Discovery Worksheet</h1>
+        <div class="subtitle">AI Agency Coaching Program</div>
+    </div>
+    <h1>Niche Discovery Worksheet</h1>
+<p>This is NOT a "pick your niche on Day 1" exercise. You start GENERAL and let the niche emerge through experience. This worksheet helps you track patterns and make a data-driven decision when the time is right (usually around Weeks 4-8).</p>
+<hr />
+<h2>Part 1: Expertise Inventory (Fill During Audit Call)</h2>
+<p>What industries have you worked in or have personal experience with?</p>
+<table>
+<thead>
+<tr>
+<th>Industry</th>
+<th>Your Role / Connection</th>
+<th>Do You Know People in This Industry?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>Yes / No</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Yes / No</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Yes / No</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Yes / No</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Yes / No</td>
+</tr>
+</tbody>
+</table>
+<p>What business problems do you understand because you've experienced them yourself?</p>
+<ol>
+<li>
+<hr />
+</li>
+<li>
+<hr />
+</li>
+<li>
+<hr />
+</li>
+</ol>
+<hr />
+<h2>Part 2: Outreach Pattern Tracker (Fill as You Go, Weeks 1-6)</h2>
+<p>As you do warm outreach and have discovery calls, track what's happening. This is how the niche reveals itself.</p>
+<h3>Which industries are responding?</h3>
+<table>
+<thead>
+<tr>
+<th>Industry</th>
+<th>Messages Sent</th>
+<th>Responses</th>
+<th>Calls Booked</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Which problems keep coming up?</h3>
+<table>
+<thead>
+<tr>
+<th>Problem You Heard</th>
+<th>How Many Times</th>
+<th>From Which Industry</th>
+<th>Could You Solve It?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Yes / No / Maybe</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Yes / No / Maybe</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Yes / No / Maybe</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Yes / No / Maybe</td>
+</tr>
+</tbody>
+</table>
+<h3>Which clients were easiest to work with?</h3>
+<table>
+<thead>
+<tr>
+<th>Client / Industry</th>
+<th>Why Were They Easy?</th>
+<th>Would You Want More Like Them?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>Yes / No</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Yes / No</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Yes / No</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Part 3: Upwork Research (Do This Around Week 4-6)</h2>
+<p>Go to Upwork and research whether businesses are already paying for the type of work you've been doing. This validates demand.</p>
+<p><strong>Search terms to try:</strong><br />
+- "AI automation [industry]"<br />
+- "Make.com [industry]"<br />
+- "n8n automation"<br />
+- "AI chatbot for [industry]"<br />
+- "lead generation automation"<br />
+- "CRM automation"<br />
+- "[industry] automation"</p>
+<p><strong>What to look for:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Search Term</th>
+<th># of Jobs Posted</th>
+<th>Average Budget</th>
+<th>Frequency (new jobs/week)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>What this tells you:</strong><br />
+- Lots of jobs posted = high demand<br />
+- High budgets = businesses are willing to pay well for this<br />
+- Frequent new posts = ongoing demand (not a one-time trend)<br />
+- Few jobs = either low demand OR an untapped opportunity (dig deeper)</p>
+<hr />
+<h2>Part 4: Niche Evaluation (Do This Around Week 6-8)</h2>
+<p>By now you should have patterns. Score your top 3 emerging niches:</p>
+<h3>Niche Scoring Matrix</h3>
+<p>Rate each factor 1-5 (1 = low, 5 = high):</p>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Niche 1: <strong><em>_</em></strong></th>
+<th>Niche 2: <strong><em>_</em></strong></th>
+<th>Niche 3: <strong><em>_</em></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Demand</strong> — Are businesses actively looking for this?</td>
+<td>/5</td>
+<td>/5</td>
+<td>/5</td>
+</tr>
+<tr>
+<td><strong>Access</strong> — Can you reach decision makers?</td>
+<td>/5</td>
+<td>/5</td>
+<td>/5</td>
+</tr>
+<tr>
+<td><strong>Willingness to Pay</strong> — Will they pay $1,500+?</td>
+<td>/5</td>
+<td>/5</td>
+<td>/5</td>
+</tr>
+<tr>
+<td><strong>Problem Severity</strong> — Is this a painful problem?</td>
+<td>/5</td>
+<td>/5</td>
+<td>/5</td>
+</tr>
+<tr>
+<td><strong>Your Interest</strong> — Do you enjoy working with them?</td>
+<td>/5</td>
+<td>/5</td>
+<td>/5</td>
+</tr>
+<tr>
+<td><strong>Repeat Potential</strong> — Can you sell more to them?</td>
+<td>/5</td>
+<td>/5</td>
+<td>/5</td>
+</tr>
+<tr>
+<td><strong>TOTAL</strong></td>
+<td>/30</td>
+<td>/30</td>
+<td>/30</td>
+</tr>
+</tbody>
+</table>
+<p><strong>How to interpret:</strong><br />
+- 25-30: Strong niche candidate — consider doubling down<br />
+- 18-24: Decent potential — worth exploring further<br />
+- Below 18: Probably not the right niche for you right now</p>
+<hr />
+<h2>Part 5: Niche Decision Framework</h2>
+<p><strong>When to niche down:</strong><br />
+- You've had 5+ conversations with businesses in the same industry<br />
+- You've delivered at least 1-2 projects in that space<br />
+- You see consistent demand (from outreach responses + Upwork research)<br />
+- You enjoy working with these clients</p>
+<p><strong>When NOT to niche down yet:</strong><br />
+- You've only talked to a handful of people<br />
+- No clear pattern has emerged<br />
+- You're still in your first 3-4 weeks of outreach</p>
+<p><strong>How to niche — by INDUSTRY, not by solution:</strong><br />
+- Good: "I help restaurants automate their operations with AI"<br />
+- Good: "I help real estate agencies never miss a lead using AI"<br />
+- Less good (too early): "I build n8n voice agents" (this is a solution, not a niche)</p>
+<p><strong>Your niche statement (when ready):</strong></p>
+<p>"I help [industry] businesses [solve what problem] using AI so they can [outcome]."</p>
+<hr />
+<hr />
+<h2>Reminders</h2>
+<ul>
+<li>The niche is not a permanent decision. It's a focus area that you can adjust as you learn more.</li>
+<li>Don't force it. If nothing is clear by Week 6, keep going general and pay attention to what comes.</li>
+<li>The transcript is clear: your first few clients will probably come from random industries because you're asking your warm network "do you know anyone?" That's fine. The niche comes after.</li>
+<li>Niching by industry (not solution) means your cold email, LinkedIn outreach, and messaging become sharper: you can reference specific problems that specific businesses face.</li>
+</ul>
+    <div class="footer">
+        AI Agency Coaching Program &mdash; Confidential
+    </div>
+</body>
+</html>

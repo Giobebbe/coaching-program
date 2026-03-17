@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer Crafting Worksheet</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent-light: #fef0f2;
+    --bg: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e5e7eb;
+    --bg-alt: #f9fafb;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+.back-nav { background: var(--bg-alt); padding: 10px 24px; }
+.back-nav a { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; }
+.back-nav a:hover { text-decoration: underline; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+    size: A4;
+    margin: 2cm 2.5cm;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: var(--bg);
+    font-size: 15px;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--accent);
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 14px;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ── Lists ───────────────────────────────────────────── */
+ul, ol {
+    margin-bottom: 14px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+li > ul, li > ol {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* ── Blockquotes (message templates) ─────────────────── */
+blockquote {
+    background: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text);
+}
+
+blockquote p {
+    margin-bottom: 8px;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+thead {
+    background: var(--primary);
+    color: white;
+}
+
+th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--bg-alt);
+}
+
+tbody tr:hover {
+    background: var(--accent-light);
+}
+
+/* ── Code / Pre ──────────────────────────────────────── */
+code {
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+pre {
+    background: var(--primary);
+    color: #e0e0e0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-size: 13px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+/* ── Horizontal Rules ────────────────────────────────── */
+hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 32px 0;
+}
+
+/* ── Checkboxes (rendered as list items) ─────────────── */
+li input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--accent);
+}
+
+/* ── Strong / Bold ───────────────────────────────────── */
+strong {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ── Fill-in blanks ──────────────────────────────────── */
+.blank-line {
+    display: inline-block;
+    min-width: 300px;
+    border-bottom: 1px solid var(--border);
+    margin: 4px 0;
+}
+
+/* ── Header bar (top of page) ────────────────────────── */
+.header-bar {
+    background: var(--primary);
+    color: white;
+    padding: 24px 32px;
+    margin: -40px -24px 32px;
+    border-radius: 0 0 12px 12px;
+}
+
+.header-bar h1 {
+    color: white;
+    border-bottom: none;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.header-bar .subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* ── Print styles ────────────────────────────────────── */
+@media print {
+    body {
+        padding: 0;
+        font-size: 12px;
+        max-width: none;
+    }
+    .header-bar {
+        margin: 0 0 24px;
+        border-radius: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    thead {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    tbody tr:nth-child(even) {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .no-print { display: none; }
+}
+</style>
+</head>
+<body>
+    <nav class="back-nav"><a href="../../index.html">← Back to All Deliverables</a></nav>
+    <div class="header-bar">
+        <h1>Offer Crafting Worksheet</h1>
+        <div class="subtitle">AI Agency Coaching Program</div>
+    </div>
+    <h1>Offer Crafting Worksheet</h1>
+<p>Use this worksheet during your Audit Call (Week 0) to define what you're going to offer businesses. You'll refine this over time as you talk to more people, but you need a starting point.</p>
+<hr />
+<h2>Part 1: Your Expertise Inventory</h2>
+<p>What industries have you worked in? (List all, even if you think they're irrelevant)</p>
+<ol>
+<li>
+<hr />
+</li>
+<li>
+<hr />
+</li>
+<li>
+<hr />
+</li>
+<li>
+<hr />
+</li>
+<li>
+<hr />
+</li>
+</ol>
+<p>What business processes do you understand well? (e.g., lead follow-up, customer support, data entry, invoicing, scheduling, email marketing, etc.)</p>
+<ol>
+<li>
+<hr />
+</li>
+<li>
+<hr />
+</li>
+<li>
+<hr />
+</li>
+<li>
+<hr />
+</li>
+<li>
+<hr />
+</li>
+</ol>
+<p>What tools/software have you used in past jobs? (CRMs, email tools, spreadsheets, project management, etc.)</p>
+<ol>
+<li>
+<hr />
+</li>
+<li>
+<hr />
+</li>
+<li>
+<hr />
+</li>
+</ol>
+<hr />
+<h2>Part 2: The Hormozi Value Equation</h2>
+<p>Your offer needs to score high on this equation:</p>
+<p><strong>Value = (Dream Outcome x Perceived Likelihood of Achievement) / (Time Delay x Effort &amp; Sacrifice)</strong></p>
+<p>To make your offer more valuable, you can:<br />
+- Increase the Dream Outcome (make the result bigger / more desirable)<br />
+- Increase Perceived Likelihood (show proof, reduce risk, offer guarantees)<br />
+- Decrease Time Delay (deliver results faster)<br />
+- Decrease Effort &amp; Sacrifice (make it easy for the client — they don't have to do much)</p>
+<h3>Dream Outcome</h3>
+<p>What is the ideal result your client gets from working with you? Write it in THEIR words, not yours.</p>
+<p>Don't say: "An n8n automation that triggers email sequences"<br />
+Say: "Never miss a lead again — every inquiry gets a response within 60 seconds, 24/7"</p>
+<p>Your Dream Outcome statement:</p>
+<hr />
+<hr />
+<h3>Perceived Likelihood</h3>
+<p>Why should they believe you can deliver this? (Right now you might not have much — that's okay. This is why we start free.)</p>
+<ul>
+<li><input type="checkbox" disabled> Testimonial from a previous client</li>
+<li><input type="checkbox" disabled> Case study showing results</li>
+<li><input type="checkbox" disabled> Personal experience in their industry</li>
+<li><input type="checkbox" disabled> Demo or proof of concept</li>
+<li><input type="checkbox" disabled> "I'll do it for free — there's zero risk for you"</li>
+</ul>
+<h3>Time Delay</h3>
+<p>How fast can you deliver?</p>
+<p>Estimated delivery time: <strong><em>_</em></strong> weeks</p>
+<p>Can you show them progress along the way? (weekly updates = less perceived delay)<br />
+- <input type="checkbox" disabled> Yes — I'll send weekly progress updates</p>
+<h3>Effort &amp; Sacrifice</h3>
+<p>What does the client need to do on their end?</p>
+<p>List everything they need to provide/do:<br />
+1. <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em><br />
+2. </strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em><br />
+3. </em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>__</p>
+<p>The less they have to do, the more valuable your offer feels. Can you reduce this list?</p>
+<hr />
+<h2>Part 3: Barrier Mapping</h2>
+<p>List every reason a potential client might say NO to working with you. Then figure out how you'll address each one.</p>
+<table>
+<thead>
+<tr>
+<th>Barrier (Why They'd Say No)</th>
+<th>How You Address It</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"I don't trust you — you're new"</td>
+<td>Free first project, no risk for them</td>
+</tr>
+<tr>
+<td>"I don't understand AI"</td>
+<td>Explain the outcome, not the tech</td>
+</tr>
+<tr>
+<td>"It sounds expensive"</td>
+<td>Start free, then price based on ROI</td>
+</tr>
+<tr>
+<td>"I don't have time for this"</td>
+<td>You handle everything, they just give access</td>
+</tr>
+<tr>
+<td>"What if it breaks?"</td>
+<td>Testing + documentation + support</td>
+</tr>
+<tr>
+<td><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>____</td>
+<td><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>____</td>
+</tr>
+<tr>
+<td><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>____</td>
+<td><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>____</td>
+</tr>
+<tr>
+<td><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>____</td>
+<td><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>____</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Part 4: Your One-Sentence Offer</h2>
+<p>Fill in the blanks:</p>
+<p><strong>"I help [type of business] [solve what problem] using AI so they can [achieve what outcome]."</strong></p>
+<p>Examples:<br />
+- "I help businesses automate their lead follow-up using AI so they never miss a potential customer."<br />
+- "I help service businesses handle inbound calls using AI so they never miss a call, even after hours."<br />
+- "I help businesses automate their repetitive admin tasks using AI so their team can focus on revenue-generating work."</p>
+<p>Your one-sentence offer (START GENERAL — you'll refine as you go):</p>
+<hr />
+<hr />
+<hr />
+<h2>Part 5: What You Actually Deliver</h2>
+<p>When a client says yes, what are you giving them? Be specific.</p>
+<p><strong>The deliverable</strong> (what they get):</p>
+<hr />
+<p><strong>"Done" looks like</strong> (how they know the project is complete):</p>
+<hr />
+<p><strong>What they need to provide</strong> (accounts, access, info):</p>
+<hr />
+<p><strong>Estimated timeline:</strong></p>
+<hr />
+<hr />
+<h2>Part 6: Pricing (For When You Start Charging)</h2>
+<p>You're NOT pricing from Day 1. First 3 clients are free. But think about this now so you're ready.</p>
+<p><strong>Project pricing</strong> (one-time fee for building the automation):<br />
+- Simple automation (email follow-up, form handling): $1,500-2,500<br />
+- Medium complexity (voice agent, multi-step workflow): $3,000-5,000<br />
+- Complex system (full business process automation): $5,000-10,000</p>
+<p><strong>Retainer pricing</strong> (monthly fee for maintaining + supporting the system):<br />
+- Formula: 20% of the implementation fee per month<br />
+- Example: $2,500 project → $500/month retainer</p>
+<p><strong>When to start charging:</strong><br />
+- After you have 1-3 testimonials from free clients<br />
+- After you've delivered successfully and know what you're doing<br />
+- After you have referrals — referred leads trust you more and are easier to close at a paid rate</p>
+<hr />
+<h2>Reminders</h2>
+<ul>
+<li>You do NOT need a niche on Day 1. Start general. The niche will emerge as you talk to more people.</li>
+<li>Your offer will evolve. This worksheet is a starting point, not a final answer.</li>
+<li>Sell the outcome, not the tool. Clients don't care about n8n, Make, or APIs. They care about saving time, making money, and not losing leads.</li>
+<li>When in doubt, go simpler. One clear solution to one clear problem beats a complicated multi-service offering.</li>
+</ul>
+    <div class="footer">
+        AI Agency Coaching Program &mdash; Confidential
+    </div>
+</body>
+</html>

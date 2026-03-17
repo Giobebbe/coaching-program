@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPI & Accountability Tracker</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent-light: #fef0f2;
+    --bg: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e5e7eb;
+    --bg-alt: #f9fafb;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+.back-nav { background: var(--bg-alt); padding: 10px 24px; }
+.back-nav a { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; }
+.back-nav a:hover { text-decoration: underline; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+    size: A4;
+    margin: 2cm 2.5cm;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: var(--bg);
+    font-size: 15px;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--accent);
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 14px;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ── Lists ───────────────────────────────────────────── */
+ul, ol {
+    margin-bottom: 14px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+li > ul, li > ol {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* ── Blockquotes (message templates) ─────────────────── */
+blockquote {
+    background: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text);
+}
+
+blockquote p {
+    margin-bottom: 8px;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+thead {
+    background: var(--primary);
+    color: white;
+}
+
+th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--bg-alt);
+}
+
+tbody tr:hover {
+    background: var(--accent-light);
+}
+
+/* ── Code / Pre ──────────────────────────────────────── */
+code {
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+pre {
+    background: var(--primary);
+    color: #e0e0e0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-size: 13px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+/* ── Horizontal Rules ────────────────────────────────── */
+hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 32px 0;
+}
+
+/* ── Checkboxes (rendered as list items) ─────────────── */
+li input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--accent);
+}
+
+/* ── Strong / Bold ───────────────────────────────────── */
+strong {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ── Fill-in blanks ──────────────────────────────────── */
+.blank-line {
+    display: inline-block;
+    min-width: 300px;
+    border-bottom: 1px solid var(--border);
+    margin: 4px 0;
+}
+
+/* ── Header bar (top of page) ────────────────────────── */
+.header-bar {
+    background: var(--primary);
+    color: white;
+    padding: 24px 32px;
+    margin: -40px -24px 32px;
+    border-radius: 0 0 12px 12px;
+}
+
+.header-bar h1 {
+    color: white;
+    border-bottom: none;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.header-bar .subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* ── Print styles ────────────────────────────────────── */
+@media print {
+    body {
+        padding: 0;
+        font-size: 12px;
+        max-width: none;
+    }
+    .header-bar {
+        margin: 0 0 24px;
+        border-radius: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    thead {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    tbody tr:nth-child(even) {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .no-print { display: none; }
+}
+
+/* KPI / CSV specific */
+.kpi-table {
+    font-size: 13px;
+}
+.kpi-table th {
+    font-size: 11px;
+    padding: 10px 12px;
+    white-space: nowrap;
+}
+.kpi-table td {
+    padding: 8px 12px;
+    text-align: center;
+}
+.kpi-table td:first-child {
+    font-weight: 600;
+    text-align: center;
+    background: var(--bg-alt);
+}
+.kpi-table td:nth-child(2) {
+    text-align: left;
+}
+.kpi-table .text-col {
+    text-align: left;
+    min-width: 120px;
+}
+
+/* Pricing table */
+.pricing-table td:first-child {
+    font-weight: 600;
+    text-align: left;
+    min-width: 200px;
+}
+.pricing-table td {
+    text-align: left;
+}
+.pricing-table td:last-child {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+.instructions {
+    background: var(--accent-light);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+}
+.instructions h3 {
+    margin-top: 0;
+    color: var(--accent);
+}
+</style>
+</head>
+<body>
+    <nav class="back-nav"><a href="../../index.html">← Back to All Deliverables</a></nav>
+    <div class="header-bar">
+        <h1>KPI & Accountability Tracker</h1>
+        <div class="subtitle">AI Agency Coaching Program — Track Your Weekly Inputs</div>
+    </div>
+    
+    <h2>Weekly Activity Tracker</h2>
+    <p>Fill this in every week. Track your inputs — they're the only thing you can control.</p>
+    <table class="kpi-table">
+<thead><tr><th>Week</th><th>Date Range</th><th>Warm Messages Sent</th><th>Follow-Ups Sent</th><th>Cold Emails Sent</th><th>LinkedIn DMs Sent</th><th>Discovery Calls Booked</th><th>Discovery Calls Completed</th><th>Proposals Sent</th><th>Free Clients Closed</th><th>Paid Clients Closed</th><th>Revenue Closed</th><th>Revenue Collected</th><th>Referrals Received</th><th>Testimonials Collected</th><th>Biggest Win</th><th>Biggest Challenge</th><th>Key Learning</th></tr></thead>
+<tbody><tr><td>1</td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="text-col"></td><td class="text-col"></td><td class="text-col"></td></tr><tr><td>2</td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="text-col"></td><td class="text-col"></td><td class="text-col"></td></tr><tr><td>3</td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="text-col"></td><td class="text-col"></td><td class="text-col"></td></tr><tr><td>4</td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="text-col"></td><td class="text-col"></td><td class="text-col"></td></tr><tr><td>5</td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="text-col"></td><td class="text-col"></td><td class="text-col"></td></tr><tr><td>6</td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="text-col"></td><td class="text-col"></td><td class="text-col"></td></tr><tr><td>7</td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="text-col"></td><td class="text-col"></td><td class="text-col"></td></tr><tr><td>8</td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="text-col"></td><td class="text-col"></td><td class="text-col"></td></tr><tr><td>9</td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="text-col"></td><td class="text-col"></td><td class="text-col"></td></tr><tr><td>10</td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="text-col"></td><td class="text-col"></td><td class="text-col"></td></tr><tr><td>11</td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="text-col"></td><td class="text-col"></td><td class="text-col"></td></tr><tr><td>12</td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="text-col"></td><td class="text-col"></td><td class="text-col"></td></tr></tbody></table>
+
+    <div class="instructions">
+        <h3>How to Use This Tracker</h3>
+        <p><strong>Option 1 — Google Sheets (recommended):</strong> Import this page's data into a Google Sheet for live editing and formulas.</p>
+        <p><strong>Option 2 — Print:</strong> Print this page (Ctrl/Cmd+P → Save as PDF) and fill in by hand each week.</p>
+    </div>
+
+    <hr>
+    <h2>Setup Instructions &amp; Additional Tabs</h2>
+    <h1>KPI Tracker — Google Sheets Setup Instructions</h1>
+<p>Import the CSV file into Google Sheets, then set up the following tabs and formatting.</p>
+<hr />
+<h2>Tab 1: Weekly Activity (from the CSV)</h2>
+<p>This is your main input tracker. Fill it in every week.</p>
+<h3>Columns:</h3>
+<ul>
+<li><strong>Week</strong>: 1-12</li>
+<li><strong>Date Range</strong>: Monday-Sunday dates</li>
+<li><strong>Warm Messages Sent</strong>: Total messages sent to warm contacts this week</li>
+<li><strong>Follow-Ups Sent</strong>: Total follow-up messages sent this week</li>
+<li><strong>Cold Emails Sent</strong>: Total cold emails sent (0 for weeks 1-3)</li>
+<li><strong>LinkedIn DMs Sent</strong>: If using LinkedIn as a channel</li>
+<li><strong>Discovery Calls Booked</strong>: From all sources</li>
+<li><strong>Discovery Calls Completed</strong>: Actually happened</li>
+<li><strong>Proposals Sent</strong>: After discovery calls</li>
+<li><strong>Free Clients Closed</strong>: Case study clients</li>
+<li><strong>Paid Clients Closed</strong>: Paying clients</li>
+<li><strong>Revenue Closed</strong>: Dollar amount closed this week</li>
+<li><strong>Revenue Collected</strong>: Actually received this week</li>
+<li><strong>Referrals Received</strong>: From existing clients</li>
+<li><strong>Testimonials Collected</strong>: Video or written</li>
+<li><strong>Biggest Win</strong>: What went well</li>
+<li><strong>Biggest Challenge</strong>: What was hard</li>
+<li><strong>Key Learning</strong>: What you learned</li>
+</ul>
+<h3>Suggested formatting:</h3>
+<ul>
+<li>Header row: bold, freeze row 1</li>
+<li>Conditional formatting on "Warm Messages Sent": green if &gt;= 150 (30/day x 5 days), yellow if 100-149, red if &lt; 100</li>
+<li>Add a SUM row at the bottom for all numeric columns</li>
+</ul>
+<hr />
+<h2>Tab 2: Monthly Dashboard (Create Manually)</h2>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Formula / Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Month</td>
+<td>1, 2, 3</td>
+</tr>
+<tr>
+<td>Total Outreach Volume</td>
+<td>Sum of warm + cold + LinkedIn for that month's weeks</td>
+</tr>
+<tr>
+<td>Total Discovery Calls</td>
+<td>Sum of calls booked for that month</td>
+</tr>
+<tr>
+<td>Call-to-Close Rate</td>
+<td>Clients Closed / Discovery Calls Completed (as %)</td>
+</tr>
+<tr>
+<td>New Clients (Free)</td>
+<td>Sum of free clients for the month</td>
+</tr>
+<tr>
+<td>New Clients (Paid)</td>
+<td>Sum of paid clients for the month</td>
+</tr>
+<tr>
+<td>Revenue Closed</td>
+<td>Sum of revenue closed for the month</td>
+</tr>
+<tr>
+<td>Revenue Collected</td>
+<td>Sum of revenue collected for the month</td>
+</tr>
+<tr>
+<td>Cumulative Revenue</td>
+<td>Running total</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Tab 3: Client Tracker (Create Manually)</h2>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>What to Enter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client Name</td>
+<td>Business name</td>
+</tr>
+<tr>
+<td>Contact Name</td>
+<td>Primary contact person</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>Warm / Cold / Referral (from whom?)</td>
+</tr>
+<tr>
+<td>Date Signed</td>
+<td>When they committed</td>
+</tr>
+<tr>
+<td>Free or Paid</td>
+<td>Free / Paid</td>
+</tr>
+<tr>
+<td>Project Type</td>
+<td>What you're building (e.g., "lead follow-up automation")</td>
+</tr>
+<tr>
+<td>Project Value</td>
+<td>One-time fee ($0 for free clients)</td>
+</tr>
+<tr>
+<td>Retainer Value</td>
+<td>Monthly recurring amount (if applicable)</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Lead / Discovery / Proposal / Signed / In Progress / Delivered / Upsell</td>
+</tr>
+<tr>
+<td>Onboarding Date</td>
+<td>When onboarding call happened</td>
+</tr>
+<tr>
+<td>Delivery Deadline</td>
+<td>Expected completion</td>
+</tr>
+<tr>
+<td>Testimonial Collected?</td>
+<td>Yes / No</td>
+</tr>
+<tr>
+<td>Referrals Given</td>
+<td>How many + names</td>
+</tr>
+<tr>
+<td>Upsell Opportunity</td>
+<td>What else could you sell them?</td>
+</tr>
+<tr>
+<td>Notes</td>
+<td>Communication log, key details</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Tab 4: Cold Email Infrastructure (Create Manually)</h2>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>What to Enter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Domain Name</td>
+<td>e.g., youragency.io</td>
+</tr>
+<tr>
+<td>Purchase Date</td>
+<td>When bought</td>
+</tr>
+<tr>
+<td>Warmup Start Date</td>
+<td>When added to Instantly</td>
+</tr>
+<tr>
+<td>Days Warmed</td>
+<td>Calculate: TODAY() - Warmup Start Date</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Warming Up / Mixing Cold / Full Deployment</td>
+</tr>
+<tr>
+<td>Daily Send Volume</td>
+<td>Current emails/day</td>
+</tr>
+<tr>
+<td>Open Rate</td>
+<td>From Instantly dashboard</td>
+</tr>
+<tr>
+<td>Reply Rate</td>
+<td>From Instantly dashboard</td>
+</tr>
+<tr>
+<td>Bounce Rate</td>
+<td>Should stay under 3%</td>
+</tr>
+<tr>
+<td>Health Score</td>
+<td>From Instantly deliverability score</td>
+</tr>
+</tbody>
+</table>
+<h3>Reference benchmarks (add as a note or side table):</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Average</th>
+<th>Good</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open rate</td>
+<td>27-44%</td>
+<td>40-60%</td>
+</tr>
+<tr>
+<td>Reply rate</td>
+<td>3-4%</td>
+<td>5-10%</td>
+</tr>
+<tr>
+<td>Bounce rate</td>
+<td>Under 3%</td>
+<td>Under 1%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Tab 5: Reference Benchmarks (Create as a Side Tab)</h2>
+<p>Add this as a reference tab so you can always check if your numbers are normal:</p>
+<h3>Warm Outreach</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Average</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Response rate (people you know)</td>
+<td>18-25%</td>
+</tr>
+<tr>
+<td>Referral conversion vs cold</td>
+<td>69-71% higher</td>
+</tr>
+<tr>
+<td>Clients who give referrals when asked</td>
+<td>20-30%</td>
+</tr>
+</tbody>
+</table>
+<h3>Cold Email</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Average</th>
+<th>Good</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open rate</td>
+<td>27-44%</td>
+<td>40-60%</td>
+</tr>
+<tr>
+<td>Reply rate (all replies)</td>
+<td>3-4%</td>
+<td>5-10%</td>
+</tr>
+<tr>
+<td>Positive reply rate</td>
+<td>1.7-2%</td>
+<td>3-5%</td>
+</tr>
+<tr>
+<td>Meeting booking rate</td>
+<td>0.5-2%</td>
+<td>2%+</td>
+</tr>
+</tbody>
+</table>
+<h3>LinkedIn DMs</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Average</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection acceptance rate</td>
+<td>25-30%</td>
+</tr>
+<tr>
+<td>Cold DM response rate</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>First-degree DM response</td>
+<td>17%</td>
+</tr>
+</tbody>
+</table>
+<h3>Discovery Calls</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Average</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Close rate (beginner)</td>
+<td>10-15%</td>
+</tr>
+<tr>
+<td>Close rate (experienced)</td>
+<td>20-30%</td>
+</tr>
+</tbody>
+</table>
+    
+    <div class="footer">
+        AI Agency Coaching Program &mdash; Confidential
+    </div>
+</body>
+</html>

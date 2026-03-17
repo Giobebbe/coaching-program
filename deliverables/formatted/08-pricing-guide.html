@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Guide</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent-light: #fef0f2;
+    --bg: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e5e7eb;
+    --bg-alt: #f9fafb;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+.back-nav { background: var(--bg-alt); padding: 10px 24px; }
+.back-nav a { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; }
+.back-nav a:hover { text-decoration: underline; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+    size: A4;
+    margin: 2cm 2.5cm;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: var(--bg);
+    font-size: 15px;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--accent);
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 14px;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ── Lists ───────────────────────────────────────────── */
+ul, ol {
+    margin-bottom: 14px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+li > ul, li > ol {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* ── Blockquotes (message templates) ─────────────────── */
+blockquote {
+    background: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text);
+}
+
+blockquote p {
+    margin-bottom: 8px;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+thead {
+    background: var(--primary);
+    color: white;
+}
+
+th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--bg-alt);
+}
+
+tbody tr:hover {
+    background: var(--accent-light);
+}
+
+/* ── Code / Pre ──────────────────────────────────────── */
+code {
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+pre {
+    background: var(--primary);
+    color: #e0e0e0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-size: 13px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+/* ── Horizontal Rules ────────────────────────────────── */
+hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 32px 0;
+}
+
+/* ── Checkboxes (rendered as list items) ─────────────── */
+li input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--accent);
+}
+
+/* ── Strong / Bold ───────────────────────────────────── */
+strong {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ── Fill-in blanks ──────────────────────────────────── */
+.blank-line {
+    display: inline-block;
+    min-width: 300px;
+    border-bottom: 1px solid var(--border);
+    margin: 4px 0;
+}
+
+/* ── Header bar (top of page) ────────────────────────── */
+.header-bar {
+    background: var(--primary);
+    color: white;
+    padding: 24px 32px;
+    margin: -40px -24px 32px;
+    border-radius: 0 0 12px 12px;
+}
+
+.header-bar h1 {
+    color: white;
+    border-bottom: none;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.header-bar .subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* ── Print styles ────────────────────────────────────── */
+@media print {
+    body {
+        padding: 0;
+        font-size: 12px;
+        max-width: none;
+    }
+    .header-bar {
+        margin: 0 0 24px;
+        border-radius: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    thead {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    tbody tr:nth-child(even) {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .no-print { display: none; }
+}
+
+/* KPI / CSV specific */
+.kpi-table {
+    font-size: 13px;
+}
+.kpi-table th {
+    font-size: 11px;
+    padding: 10px 12px;
+    white-space: nowrap;
+}
+.kpi-table td {
+    padding: 8px 12px;
+    text-align: center;
+}
+.kpi-table td:first-child {
+    font-weight: 600;
+    text-align: center;
+    background: var(--bg-alt);
+}
+.kpi-table td:nth-child(2) {
+    text-align: left;
+}
+.kpi-table .text-col {
+    text-align: left;
+    min-width: 120px;
+}
+
+/* Pricing table */
+.pricing-table td:first-child {
+    font-weight: 600;
+    text-align: left;
+    min-width: 200px;
+}
+.pricing-table td {
+    text-align: left;
+}
+.pricing-table td:last-child {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+.instructions {
+    background: var(--accent-light);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+}
+.instructions h3 {
+    margin-top: 0;
+    color: var(--accent);
+}
+</style>
+</head>
+<body>
+    <nav class="back-nav"><a href="../../index.html">← Back to All Deliverables</a></nav>
+    <div class="header-bar">
+        <h1>Pricing Guide</h1>
+        <div class="subtitle">AI Agency Coaching Program — Reference Pricing for AI Automation Services</div>
+    </div>
+    
+    <h2>AI Automation Pricing Reference</h2>
+    <p>Use this as a starting point when pricing your services. Adjust based on complexity, your experience level, and the client's perceived value.</p>
+
+    <table class="pricing-table">
+<thead><tr><th>Solution Type</th><th>Beginner Price Range (Project)</th><th>Experienced Price Range (Project)</th><th>Retainer (20% of Project)</th><th>Example ROI Framing</th></tr></thead>
+<tbody><tr><td>Email Lead Follow-Up Automation</td><td>$1,500 - $2,500</td><td>$3,000 - $5,000</td><td>$300 - $500/month</td><td>If this captures 2-3 extra deals/month at your avg deal size the system pays for itself in month 1</td></tr><tr><td>AI Inbound Receptionist / Voice Agent</td><td>$3,000 - $5,000</td><td>$5,000 - $10,000</td><td>$600 - $1,000/month</td><td>Never miss a call again — even nights and weekends. If you're missing 5+ calls/week that's revenue walking out the door</td></tr><tr><td>CRM Automation / Data Entry</td><td>$1,500 - $2,500</td><td>$2,500 - $5,000</td><td>$300 - $500/month</td><td>Your team spends X hours/week on manual data entry at $Y/hour. This automation pays for itself in the first month</td></tr><tr><td>Social Media / Content Automation</td><td>$1,500 - $3,000</td><td>$3,000 - $5,000</td><td>$300 - $600/month</td><td>Save 10-15 hours/week on content creation and scheduling. Your team can focus on strategy instead of execution</td></tr><tr><td>Customer Support / AI Chatbot</td><td>$2,500 - $5,000</td><td>$5,000 - $10,000</td><td>$500 - $1,000/month</td><td>Handle 80% of repetitive customer questions automatically. Your support team can focus on complex issues</td></tr><tr><td>Appointment Booking Automation</td><td>$1,500 - $2,500</td><td>$2,500 - $4,000</td><td>$300 - $500/month</td><td>Every lead gets booked automatically without your team playing phone tag. No more lost appointments</td></tr><tr><td>AI Business Audit (Consulting)</td><td>$500 - $1,500</td><td>$1,500 - $3,000</td><td>N/A</td><td>We map out every process in your business and identify where AI can save you time and money. This becomes the roadmap for implementation</td></tr><tr><td>Full Process Automation (Complex)</td><td>$5,000 - $10,000</td><td>$10,000 - $25,000</td><td>$1,000 - $2,500/month</td><td>End-to-end automation of your core business process. Replaces X manual steps with a fully automated workflow</td></tr></tbody></table>
+
+    <h2>Pricing Principles</h2>
+    <ul>
+        <li><strong>First 3 clients: FREE</strong> — in exchange for a testimonial + 2 referrals each</li>
+        <li><strong>Price by value, not by hour.</strong> What's the outcome worth to them?</li>
+        <li><strong>Retainer formula:</strong> 20% of the implementation fee per month</li>
+        <li><strong>Never discount your price</strong> — reduce scope instead</li>
+        <li><strong>ROI framing:</strong> Always connect your price to what the problem is costing them</li>
+    </ul>
+
+    <h2>How to Present Pricing</h2>
+    <ol>
+        <li>Sell the <strong>outcome</strong> first — paint the picture of their business after the solution</li>
+        <li>Frame price as <strong>ROI</strong> — "If this captures 2-3 extra deals/month..."</li>
+        <li>Use <strong>anchoring</strong> — reference what the problem currently costs them</li>
+        <li>Present <strong>payment options</strong>, not price options — one price, flexible terms</li>
+    </ol>
+
+    <h2>Payment Structure</h2>
+    <table>
+        <thead><tr><th>Option</th><th>How It Works</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Standard</strong></td><td>50% upfront, 50% upon completion</td></tr>
+            <tr><td><strong>Full Payment</strong></td><td>100% upfront with 10% discount</td></tr>
+            <tr><td><strong>Retainer Add-on</strong></td><td>20% of project fee per month for ongoing support</td></tr>
+        </tbody>
+    </table>
+    
+    <div class="footer">
+        AI Agency Coaching Program &mdash; Confidential
+    </div>
+</body>
+</html>

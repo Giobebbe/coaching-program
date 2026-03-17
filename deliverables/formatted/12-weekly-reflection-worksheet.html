@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Reflection Worksheet</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent-light: #fef0f2;
+    --bg: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666666;
+    --border: #e5e7eb;
+    --bg-alt: #f9fafb;
+    --success: #10b981;
+    --warning: #f59e0b;
+}
+
+.back-nav { background: var(--bg-alt); padding: 10px 24px; }
+.back-nav a { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; }
+.back-nav a:hover { text-decoration: underline; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+    size: A4;
+    margin: 2cm 2.5cm;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: var(--bg);
+    font-size: 15px;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--accent);
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 28px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 14px;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* ── Lists ───────────────────────────────────────────── */
+ul, ol {
+    margin-bottom: 14px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+li > ul, li > ol {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* ── Blockquotes (message templates) ─────────────────── */
+blockquote {
+    background: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text);
+}
+
+blockquote p {
+    margin-bottom: 8px;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+thead {
+    background: var(--primary);
+    color: white;
+}
+
+th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--bg-alt);
+}
+
+tbody tr:hover {
+    background: var(--accent-light);
+}
+
+/* ── Code / Pre ──────────────────────────────────────── */
+code {
+    background: var(--bg-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+pre {
+    background: var(--primary);
+    color: #e0e0e0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-size: 13px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+/* ── Horizontal Rules ────────────────────────────────── */
+hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 32px 0;
+}
+
+/* ── Checkboxes (rendered as list items) ─────────────── */
+li input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--accent);
+}
+
+/* ── Strong / Bold ───────────────────────────────────── */
+strong {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ── Fill-in blanks ──────────────────────────────────── */
+.blank-line {
+    display: inline-block;
+    min-width: 300px;
+    border-bottom: 1px solid var(--border);
+    margin: 4px 0;
+}
+
+/* ── Header bar (top of page) ────────────────────────── */
+.header-bar {
+    background: var(--primary);
+    color: white;
+    padding: 24px 32px;
+    margin: -40px -24px 32px;
+    border-radius: 0 0 12px 12px;
+}
+
+.header-bar h1 {
+    color: white;
+    border-bottom: none;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.header-bar .subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* ── Print styles ────────────────────────────────────── */
+@media print {
+    body {
+        padding: 0;
+        font-size: 12px;
+        max-width: none;
+    }
+    .header-bar {
+        margin: 0 0 24px;
+        border-radius: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    thead {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    tbody tr:nth-child(even) {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .no-print { display: none; }
+}
+</style>
+</head>
+<body>
+    <nav class="back-nav"><a href="../../index.html">← Back to All Deliverables</a></nav>
+    <div class="header-bar">
+        <h1>Weekly Reflection Worksheet</h1>
+        <div class="subtitle">AI Agency Coaching Program</div>
+    </div>
+    <h1>Weekly Reflection Worksheet</h1>
+<p><strong>Week #:</strong> <strong><em>_</em> | <strong>Date range:</strong> </strong><strong><em>_</em></strong><strong><em>_</em>_ to </strong><strong><em>_</em></strong>______</p>
+<hr />
+<h2>This Week's Input Goals (Set at start of week)</h2>
+<table>
+<thead>
+<tr>
+<th>Input Goal</th>
+<th>Target</th>
+<th>Actual</th>
+<th>Hit?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Warm messages sent</td>
+<td>/day</td>
+<td>/day</td>
+<td>Y / N</td>
+</tr>
+<tr>
+<td>Follow-ups sent</td>
+<td></td>
+<td></td>
+<td>Y / N</td>
+</tr>
+<tr>
+<td>Cold emails sent (if active)</td>
+<td>/day</td>
+<td>/day</td>
+<td>Y / N</td>
+</tr>
+<tr>
+<td>Discovery calls booked</td>
+<td></td>
+<td></td>
+<td>Y / N</td>
+</tr>
+<tr>
+<td>Discovery calls completed</td>
+<td></td>
+<td></td>
+<td>Y / N</td>
+</tr>
+<tr>
+<td>Proposals sent</td>
+<td></td>
+<td></td>
+<td>Y / N</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Daily Tracker</h2>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Warm Messages</th>
+<th>Follow-ups</th>
+<th>Cold Emails</th>
+<th>Calls</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mon</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tue</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Wed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Thu</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fri</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Sat</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Sun</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>TOTAL</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>End of Week Reflection</h2>
+<p><strong>Biggest win this week:</strong></p>
+<hr />
+<hr />
+<p><strong>Biggest challenge this week:</strong></p>
+<hr />
+<hr />
+<p><strong>Key learning (what did you discover or realize?):</strong></p>
+<hr />
+<hr />
+<p><strong>What should I do MORE of next week?</strong></p>
+<hr />
+<p><strong>What should I STOP doing next week?</strong></p>
+<hr />
+<p><strong>Am I spending 80% of my time on sales and 20% on delivery?</strong><br />
+- <input type="checkbox" disabled> Yes<br />
+- <input type="checkbox" disabled> No — I need to shift my time toward: <strong><em>_</em></strong><strong><em>_</em></strong>_</p>
+<hr />
+<h2>Pipeline Status</h2>
+<table>
+<thead>
+<tr>
+<th>Client / Lead</th>
+<th>Status</th>
+<th>Next Step</th>
+<th>By When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Lead / Call Booked / Proposal / Signed / Delivering</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Lead / Call Booked / Proposal / Signed / Delivering</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Lead / Call Booked / Proposal / Signed / Delivering</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Lead / Call Booked / Proposal / Signed / Delivering</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Questions for Next Strategy Call</h2>
+<ol>
+<li>
+<hr />
+</li>
+<li>
+<hr />
+</li>
+<li>
+<hr />
+</li>
+</ol>
+<hr />
+<h2>Next Week's Input Goals</h2>
+<table>
+<thead>
+<tr>
+<th>Input Goal</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Warm messages sent</td>
+<td>/day</td>
+</tr>
+<tr>
+<td>Follow-ups sent</td>
+<td></td>
+</tr>
+<tr>
+<td>Cold emails sent</td>
+<td>/day</td>
+</tr>
+<tr>
+<td>Discovery calls to book</td>
+<td></td>
+</tr>
+<tr>
+<td>Other: <strong><em>_</em></strong>______</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Remember: Focus on inputs you control. The output is a byproduct of consistent action.</em></p>
+    <div class="footer">
+        AI Agency Coaching Program &mdash; Confidential
+    </div>
+</body>
+</html>
